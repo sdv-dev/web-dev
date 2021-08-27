@@ -1,0 +1,42 @@
+#navbar {
+  transition: all 100ms ease-in-out;
+  background-color: transparent;
+  .nav-bg-white & {
+    background-color: #000036;
+  }
+
+  @media (max-width: 1024px) {
+    background-color: #000036;
+  }
+}
+
+.navbar-item {
+  color: white;
+  .nav-bg-white & {
+    color: white;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 1024px) {
+    color: white;
+  }
+}
+
+.fluid-width-video-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+.fluid-width-video-wrapper iframe,
+.fluid-width-video-wrapper object,
+.fluid-width-video-wrapper embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

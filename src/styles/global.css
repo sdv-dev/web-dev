@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  body {
+    @apply font-cern;
+  }
+
+  h1 {
+    @apply text-8xl;
+    @apply leading-snug;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h2 {
+    @apply text-7xl;
+    @apply leading-none;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h3 {
+    @apply text-6xl;
+    @apply leading-snug;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h4 {
+    @apply text-5xl;
+    @apply leading-snug;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h5 {
+    @apply text-4xl;
+    @apply leading-snug;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h6 {
+    @apply text-3xl;
+    @apply leading-snug;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+
+  p {
+    @apply leading-extra-relaxed
+  }
+
+  .link-wrap .read-more {
+    @apply text-sdv-dark;
+  }
+
+  .link-wrap:hover .read-more {
+    @apply text-sdv-secondary;
+  }
+
+  ul.dashed > li:before {
+    content: "- ";
+    text-indent: -5px;
+  }
+
+  a > svg {
+    @apply inline-block;
+  }
+
+  .filter-gs {
+    filter: grayscale(1);
+  }
+
+  .grad-txt {
+    background: -webkit-linear-gradient(0deg, #03B0F2 1.57%, #01E0C9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .grad-border {
+    border-image: linear-gradient(0deg, #03B0F2 1.57%, #01E0C9 100%);
+  }
+
+  .grad-bg {
+    background-image: linear-gradient(90deg, #03B0F2 1.57%, #01E0C9 100%);
+  }
+
+  
+}
+
+pre[class*="language-"], :not(pre) > code[class*="language-"] {
+  background: #000036 !important;
+}
+
+pre[class*="language-"] {
+  border: .3em solid #000036 !important;
+  font-family: 'Cern', sans-serif;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+  border-radius: 1rem !important;
+}
+
+.token.keyword  {
+  font-weight: 700 !important;
+  color:#03C8DE !important
+}
+
+.token.boolean {
+  font-weight: 700 !important;
+  color: #01E0C9 !important;
+}
+
+.token.comment {
+  color: #ADADAD !important;
+}
+
+.sal-animate .img-cover:nth-of-type(even) {
+  @apply translate-y-full
+}
+.sal-animate .img-cover:nth-of-type(odd) {
+  @apply -translate-y-full
+}
