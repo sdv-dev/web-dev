@@ -11,7 +11,7 @@ const config = require(`./src/utils/siteConfig`)
 *
 */
 module.exports = {
-    pathPrefix: "/web-dev",
+    pathPrefix: "/web-dev/",
     siteMetadata: {
         siteUrl: process.env.SITEURL || config.siteUrl,
         url: process.env.SITEURL || config.siteUrl,
