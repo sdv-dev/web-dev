@@ -42,21 +42,21 @@ export default function Footer() {
                     {/* <div className="px-1">
                       <Link target="_blank" rel="noopener" 
                         to="https://sdv-space.slack.com/join/shared_invite/zt-gdsfcb5w-0QQpFMVoyB2Yd6SRiMplcw#/" 
-                        className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight bg-sdv-offwhite">
+                        className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight hover:opacity-80 bg-sdv-offwhite">
                         <FontAwesomeIcon width="16" icon={faSlack} />
                       </Link>
                     </div> */}
                     <div className="px-1">
                       <Link target="_blank" rel="noopener" 
                         to="https://twitter.com/" 
-                        className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight bg-sdv-offwhite">
+                        className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight hover:opacity-80 bg-sdv-offwhite">
                         <FontAwesomeIcon width="16" icon={faTwitter} />
                       </Link>
                     </div>
                     <div className="px-1">
                       <Link target="_blank" rel="noopener" 
                         to="https://www.linkedin.com/company/" 
-                        className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight bg-sdv-offwhite">
+                        className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight hover:opacity-80 bg-sdv-offwhite">
                         <FontAwesomeIcon width="16" icon={faLinkedin} />
                       </Link>
                     </div>

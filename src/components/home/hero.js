@@ -169,7 +169,7 @@ export default function Hero({ downloads }) {
                 <div className="px-4 w-full lg:text-right text-center">
                   <a
                     href="https://sdv.dev/"
-                    className="px-4 py-1 rounded-full inline-block border border-sdv-dark text-sm"
+                    className="px-4 py-1 rounded-full inline-block border border-sdv-dark text-sm hover:bg-sdv-dark hover:text-white"
                   >
                     Open the Vault →
                   </a>
@@ -189,7 +189,7 @@ export default function Hero({ downloads }) {
               <p>
                 <a
                   href="https://datacebo.com/contact"
-                  className="inline-block rounded-full text-white px-10 py-3 font-bold"
+                  className="inline-block rounded-full text-white px-10 py-3 font-bold hover:opacity-80 grad-bg"
                   style={{
                     backgroundImage:
                       "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
