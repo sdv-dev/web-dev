@@ -1,8 +1,7 @@
 # web-dev
 
-*https://sdv.dev/web-dev/*
 
-# Installing
+## Installing
 
 Then install dependencies
 
