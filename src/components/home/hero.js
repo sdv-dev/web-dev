@@ -92,7 +92,7 @@ export default function Hero({ downloads }) {
         <div>
           <TopWave />
           <div
-            className="-my-4 lg:-my-10 relative z-10"
+            className="-my-4 lg:-my-10 relative z-10 grad-bg"
             style={{
               backgroundImage:
                 "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
