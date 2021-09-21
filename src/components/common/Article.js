@@ -1,13 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { Link, StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
 
 import { Navigation } from ".";
-import Footer from "../../components/Footer";
-import Cta from "../../components/Cta";
-// import config from "../../utils/siteConfig";
 
 import Logo from "../../../assets/data-cebo-logo.svg";
 

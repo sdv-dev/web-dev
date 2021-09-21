@@ -3,13 +3,11 @@ import React from "react";
 
 import Logo from "../../assets/data-cebo-logo.svg"
 
-import Img from "gatsby-image";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSlack, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import { Link, StaticQuery, graphql } from "gatsby"
-import config from "../utils/siteConfig"
 
 export default function Footer() {
   return (
@@ -74,8 +72,8 @@ export default function Footer() {
                         <Link className="hover:underline" to="#">Contact Us</Link></li>
                       <li className="mb-4">
                         <Link className="hover:underline" to="#">About Us</Link></li>
-                      <li className="mb-4">
-                        <Link className="hover:underline" to={`#`}>Careers</Link></li>
+                      {/* <li className="mb-4">
+                        <Link className="hover:underline" to={`#`}>Careers</Link></li> */}
                       
                     </ul>
                   </div>
@@ -83,11 +81,11 @@ export default function Footer() {
                     <p className="font-bold mb-6">SDV</p>
                     <ul className="font-light">
                       <li className="mb-4">
-                        <Link className="hover:underline" to="https://sdv.dev/blog/">Blog</Link></li>
+                        <a className="hover:underline" href="https://sdv.dev/blog/">Blog</a></li>
                       <li className="mb-4">
-                        <Link className="hover:underline" to="https://sdv.dev/SDV/">Docs</Link></li>
+                        <a className="hover:underline" href="https://sdv.dev/SDV/">Docs</a></li>
                       <li className="mb-4">
-                        <Link className="hover:underline" to={`https://sdv.dev/resources/`}>Resources</Link></li>
+                        <a className="hover:underline" href={`https://sdv.dev/resources/`}>Resources</a></li>
                       
                     </ul>
                   </div>

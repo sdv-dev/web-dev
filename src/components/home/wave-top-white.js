@@ -12,8 +12,8 @@ function WhiteTopWave() {
     >
       <defs>
         <linearGradient id="myGradient" gradientTransform="rotate(0)">
-          <stop offset="0%" stop-color="#03B0F2" />
-          <stop offset="100%" stop-color="#01E0C9" />
+          <stop offset="0%" stopColor="#03B0F2" />
+          <stop offset="100%" stopColor="#01E0C9" />
         </linearGradient>
       </defs>
       <path

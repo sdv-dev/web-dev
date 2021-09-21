@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 
@@ -70,9 +70,9 @@ export default function Hero({ downloads }) {
 
   return (
     <div>
-      <div className="w-full relative pt-32 lg:pt-64 pb-36 bg-sdv-dark">
+      <div className="w-full relative pt-32 lg:pt-48 lg:pb-28 pb-24 bg-sdv-dark">
         <div className="absolute inset-0 z-0">
-          <Img objectFit="cover" className="object-cover h-full" fluid={data.bgImage.childImageSharp.fluid} />
+          <Img alt="Image cover" objectFit="cover" className="object-cover h-full" fluid={data.bgImage.childImageSharp.fluid} />
         </div>
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col justify-center items-center -mx-4">
@@ -118,7 +118,7 @@ export default function Hero({ downloads }) {
       </section>
       <div className="w-full relative bg-sdv-dark">
         <div className="absolute inset-0 z-0">
-          <Img objectFit="cover" className="object-cover h-full" fluid={data.midBg.childImageSharp.fluid} />
+          <Img alt="background" objectFit="cover" className="object-cover h-full" fluid={data.midBg.childImageSharp.fluid} />
         </div>
 
         <div className="mx-auto container relative z-10 -mt-10 lg:-mt-40 px-4">
@@ -135,7 +135,7 @@ export default function Hero({ downloads }) {
                             target="_blank"
                             className="h-full block transition-shadow"
                           >
-                            <img src={`${item.icon}`} className="mb-3" />
+                            <img src={`${item.icon}`} alt={item.name} className="mb-3" />
                             <p className="font-bold text-lg lg:text-xl">
                               {item.name}
                             </p>
@@ -154,7 +154,7 @@ export default function Hero({ downloads }) {
                           target="_blank"
                           className="h-full block transition-shadow"
                         >
-                          <img src={`${item.icon}`} className="mb-3" />
+                          <img src={`${item.icon}`} alt={item.name} className="mb-3" />
                           <p className="font-bold text-lg lg:text-xl">
                             {item.name}
                           </p>
@@ -169,6 +169,7 @@ export default function Hero({ downloads }) {
                 <div className="px-4 w-full lg:text-right text-center">
                   <a
                     href="https://sdv.dev/"
+                    target="_blank"
                     className="px-4 py-1 rounded-full inline-block border border-sdv-dark text-sm hover:bg-sdv-dark hover:text-white"
                   >
                     Open the Vault →
@@ -179,7 +180,7 @@ export default function Hero({ downloads }) {
           </div>
         </div>
 
-        <div className="mx-auto container relative z-10 my-32">
+        <div className="mx-auto container relative z-10 lg:my-28 my-20">
           <div className="flex flex-wrap justify-center -mx-4">
             <div className="px-4 w-full max-w-4xl  text-center ">
               <p className="text-xl text-white mb-8">

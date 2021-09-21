@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Article } from "../components/common";
 import Hero from "../components/home/hero";
 import config from "../utils/siteConfig";

@@ -70,6 +70,9 @@ module.exports = {
         '3': '3px'
       },
       colors: {
+        nav: {
+          DEFAULT: "#0f1a3a"
+        },
         sdv: {
           highlight: '#03C8DE',
           primary: '#01E0C9',
