@@ -10,37 +10,38 @@ import HeroText from "../../../assets/data-cebo-hero-name.svg";
 import BottomWave from "../home/wave-top-white";
 import TopWave from "../home/wave-bottom-white";
 
-const features = [
-  {
-    icon: "/single-table.svg",
-    name: "Comprehensive",
-    text:
-      "The SDV is based on over 5 years of research at MIT. We offer multiple machine learning models, benchmarking and evaluation frameworks.",
-    github: "",
-    docs: "",
-    userguide: "",
-  },
-  {
-    icon: "/multi-table.svg",
-    name: "Open Source",
-    text:
-      "With over XXK open source downloads, our libraries have been tested by users all over the world.",
-    github: "",
-    docs: "",
-    userguide: "",
-  },
-  {
-    icon: "/time-series.svg",
-    name: "Community",
-    text:
-      "We support an active community on GitHub & Slack. We are always improving our systems through user feedback.",
-    github: "",
-    docs: "",
-    userguide: "",
-  },
-];
+
 
 export default function Hero({ downloads }) {
+  const features = [
+    {
+      icon: "/single-table.svg",
+      name: "Comprehensive",
+      text:
+        "The SDV is based on over 5 years of research at MIT. We offer multiple machine learning models, benchmarking and evaluation frameworks.",
+      github: "",
+      docs: "",
+      userguide: "",
+    },
+    {
+      icon: "/multi-table.svg",
+      name: "Open Source",
+      text:
+        `With over ${downloads}KK open source downloads, our libraries have been tested by users all over the world.`,
+      github: "",
+      docs: "",
+      userguide: "",
+    },
+    {
+      icon: "/time-series.svg",
+      name: "Community",
+      text:
+        "We support an active community on GitHub & Slack. We are always improving our systems through user feedback.",
+      github: "",
+      docs: "",
+      userguide: "",
+    },
+  ];
   const data = useStaticQuery(graphql`
     query {
       bgImage: file(relativePath: { eq: "data-cebo-bg.png" }) {
