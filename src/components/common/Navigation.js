@@ -136,7 +136,7 @@ const Navigation = ({ data, navClass, children }) => {
                                         to="/contact-us/"
                                         
                                     >
-                                        Contact
+                                        Contact Us
                                     </Link>
                                 </div>
                             </div>
