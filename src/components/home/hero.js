@@ -71,7 +71,7 @@ export default function Hero({ downloads }) {
 
   return (
     <div>
-      <div className="w-full relative pt-32 lg:pt-48 lg:pb-28 pb-24 bg-sdv-dark">
+      <div className="w-full relative pt-40 lg:pt-48 lg:pb-28 pb-28 bg-sdv-dark">
         <div className="absolute inset-0 z-0">
           <Img alt="Image cover" objectFit="cover" className="object-cover h-full" fluid={data.bgImage.childImageSharp.fluid} />
         </div>
@@ -89,17 +89,17 @@ export default function Hero({ downloads }) {
           </div>
         </div>
       </div>
-      <section className="-my-10 sm:-my-16 lg:-my-24 bg-sdv-sedondary relative z-10">
+      <section className="-my-8 sm:-my-16 lg:-my-24 bg-sdv-sedondary relative z-10">
         <div>
           <TopWave />
           <div
-            className="-my-4 lg:-my-10 relative z-10 grad-bg"
+            className="-my-2 lg:-my-10 relative z-10 grad-bg"
             style={{
               backgroundImage:
                 "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
             }}
           >
-            <div className="container mx-auto pt-8 pb-12 lg:pb-20">
+            <div className="container mx-auto pt-10 pb-12 lg:pb-20">
               <div className="flex flex-wrap items-center justify-center text-center -mx-4">
                 <div className="w-full max-w-3xl">
                   <p className="text-xl text-white">
