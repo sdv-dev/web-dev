@@ -99,7 +99,7 @@ export default function Hero({ downloads }) {
                 "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
             }}
           >
-            <div className="container mx-auto pt-10 pb-12 lg:pb-20">
+            <div className="container mx-auto py-12 sm:pt-10 sm:pb-12 lg:pb-20">
               <div className="flex flex-wrap items-center justify-center text-center -mx-4">
                 <div className="w-full max-w-3xl">
                   <p className="text-xl text-white">

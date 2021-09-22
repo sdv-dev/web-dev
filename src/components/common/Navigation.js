@@ -102,42 +102,48 @@ const Navigation = ({ data, navClass, children }) => {
                                     isActive ? "flex" : "hidden"
                                 } lg:block absolute lg:relative top-14 lg:top-auto inset-x-0 bg-nav lg:bg-transparent`}
                             >
-                                <div className=" flex lg:flex-row flex-col justify-center items-center w-full">
+                                <div className=" flex lg:flex-row flex-col justify-center items-center w-full -mx-4">
                                     {navItemsHome.map((navItem, i) => {
                                         if (
                                             navItem.url.match(/^\s?http(s?)/gi)
                                         ) {
                                             return (
-                                                <a
-                                                    className={navClass}
-                                                    href={navItem.url}
-                                                    key={i}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    {navItem.label}
-                                                </a>
+                                                <div className="px-4 w-auto">
+                                                    <a
+                                                        className={navClass}
+                                                        href={navItem.url}
+                                                        key={i}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        {navItem.label}
+                                                    </a>
+                                                </div>
                                             );
                                         } else {
                                             return (
-                                                <Link
-                                                    className={navClass}
-                                                    to={navItem.url}
-                                                    key={i}
-                                                >
-                                                    {navItem.label}
-                                                </Link>
+                                                <div className="px-4 w-auto">
+                                                    <Link
+                                                        className={navClass}
+                                                        to={navItem.url}
+                                                        key={i}
+                                                    >
+                                                        {navItem.label}
+                                                    </Link>
+                                                </div>
                                             );
                                         }
                                     })}
 
-                                    <Link
-                                        className={`border border-white rounded-md ${navClass}`}
-                                        to="/contact-us/"
+                                    <div className="px-4 w-auto flex-grow">
+                                        <Link
+                                            className={`border border-white w-28 text-center rounded-md ${navClass}`}
+                                            to="/contact-us/"
                                         
-                                    >
-                                        Contact Us
-                                    </Link>
+                                        >
+                                            Contact Us
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
