@@ -100,7 +100,7 @@ const Navigation = ({ data, navClass, children }) => {
                             <div
                                 className={`${
                                     isActive ? "flex" : "hidden"
-                                } lg:block absolute lg:relative top-14 lg:top-auto inset-x-0 bg-sdv-dark lg:bg-transparent`}
+                                } lg:block absolute lg:relative top-14 lg:top-auto inset-x-0 bg-nav lg:bg-transparent`}
                             >
                                 <div className=" flex lg:flex-row flex-col justify-center items-center w-full">
                                     {navItemsHome.map((navItem, i) => {
