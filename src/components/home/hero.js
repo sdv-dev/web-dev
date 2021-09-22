@@ -27,7 +27,7 @@ export default function Hero({ downloads }) {
       icon: "/multi-table.svg",
       name: "Open Source",
       text:
-        `With over ${downloads}KK open source downloads, our libraries have been tested by users all over the world.`,
+        `With over ${downloads},000 open source downloads, our libraries have been tested by users all over the world.`,
       github: "",
       docs: "",
       userguide: "",
