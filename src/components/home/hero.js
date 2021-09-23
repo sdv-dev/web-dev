@@ -77,13 +77,13 @@ export default function Hero({ downloads }) {
         </div>
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col justify-center items-center -mx-4">
-            <div className="max-w-xs w-24 lg:w-auto">
+            <div className="max-w-xs w-24 lg:w-auto px-4">
               <HeroLogo />
             </div>
-            <div className="max-w-sm lg:my-6 my-4 w-56 lg:w-auto">
+            <div className="max-w-sm lg:my-6 my-4 w-56 lg:w-auto px-4">
               <HeroText />
             </div>
-            <p className="text-white text-center text-4xl">
+            <p className="text-white text-center text-4xl px-4">
               Make synthetic data a reality
             </p>
           </div>
@@ -99,9 +99,9 @@ export default function Hero({ downloads }) {
                 "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
             }}
           >
-            <div className="container mx-auto py-12 sm:pt-10 sm:pb-12 lg:pb-20">
+            <div className="container mx-auto pt-10 pb-12 lg:pb-20">
               <div className="flex flex-wrap items-center justify-center text-center -mx-4">
-                <div className="w-full max-w-3xl">
+                <div className="w-full max-w-3xl px-4">
                   <p className="text-xl text-white">
                     <strong className="font-bold ">
                       The Synthetic Data Vault
