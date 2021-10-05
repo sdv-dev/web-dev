@@ -123,3 +123,11 @@ pre[class*="language-"] {
 .sal-animate .img-cover:nth-of-type(odd) {
   @apply -translate-y-full
 }
+
+.dr-dwn {
+  @apply hidden;
+}
+
+.is-active > .dr-dwn{
+  @apply block lg:animate-slide-up;
+}

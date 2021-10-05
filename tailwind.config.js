@@ -44,18 +44,12 @@ module.exports = {
     
     extend: { 
       animation: {
-        'slide-up': 'slideup 300ms 200ms ease-in forwards',
+        'slide-up': 'slideup 200ms ease-in forwards',
       },
       keyframes: {
         slideup: {
-          '0%': { 
-            transform: 'translateY(50px)',
-            opacity: 0
-            },
-          '100%': { 
-            transform: 'rotate(0)',
-            opacity: 1
-          },
+          '0%': { transform: 'translateY(15px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
         }
       },
       
@@ -74,6 +68,7 @@ module.exports = {
           DEFAULT: "#0f1a3a"
         },
         sdv: {
+          navitem: "rgba(0, 0, 54, 0.75)",
           highlight: '#03C8DE',
           primary: '#01E0C9',
           secondary: '#03AFF1',

@@ -2,6 +2,57 @@ import React, { useRef, useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { Squash as Hamburger } from "hamburger-react";
 import PropTypes from "prop-types";
+import NavbarItem from "../NavbarItem";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faSlack } from '@fortawesome/free-brands-svg-icons'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
+
+const navbarItems = [
+    {
+      name: "SDV",
+      text:
+        "<p class='leading-tight'>We are the proud creators of the <b>Synthetic Data Vault</b>, the largest open source ecosystem for synthetic data generation & evaluation.</p>",
+      subItems: [
+        {
+          title: "Synthetic Data Vault",
+          icon: "SDV",
+          url: "https://sdv.dev/",
+          text:
+            "Start here to discover the open source libraries in the SDV ecosystem.",
+        },
+        {
+          title: "GitHub",
+          icon: <FontAwesomeIcon size="lg" icon={faGithub} />,
+          url: "https://github.com/sdv-dev/SDV",
+          text: "Explore the user guides and API to model your data",
+        },
+        {
+          title: "Docs",
+          icon: <FontAwesomeIcon size="lg" icon={faCopy} />,
+          url: "https://sdv.dev/SDV/",
+          text:
+            "Start here to discover the open source libraries in the SDV ecosystem.",
+        },
+        {
+          title: "Slack",
+          icon: <FontAwesomeIcon  size="lg" icon={faSlack} />,
+          url: "https://sdv-space.slack.com/join/shared_invite/zt-gdsfcb5w-0QQpFMVoyB2Yd6SRiMplcw#/",
+          text: "Chat with developers and become part of the community",
+        },
+        {
+          title: "Blog",
+          icon: "Blog",
+          url: "https://sdv.dev/blog/",
+          text:
+            "<div><p>Read our blog for nuanced discussions about synthetic data</p><ul class='list-disc list-inside my-3'><li>Meet the Synthetic Data Vault</li> <li>Your Feedback in Action</li> <li>Your Feedback in Action</li></ul></div>",
+        }
+      ],
+    },
+    { name: "Company", url: "https://sdv.dev/SDV" },
+    { name: "Contact Us", url: "/contact-us/" }
+  ]
+
 
 
 /**
@@ -14,12 +65,6 @@ import PropTypes from "prop-types";
  * to a `site-nav-item` class.
  *
  */
-
-
-const navItemsHome = [
-    { label: "SDV", url: "https://sdv.dev/" },
-  { label: "Company", url: "https://sdv.dev/SDV" },
-];
 
 const Navigation = ({ data, navClass, children }) => {
     const ref = useRef();
@@ -81,7 +126,7 @@ const Navigation = ({ data, navClass, children }) => {
             ref={ref}
         >
             <div className="container mx-auto">
-                <div className="relative flex md:flex-row flex-col items-center justify-between -mx-5">
+                <div className=" flex md:flex-row flex-col items-center justify-between -mx-5">
                     <div className="absolute inset-y-0 px-2 left-0 flex items-center lg:hidden ">
                         <Hamburger
                             color="#ffffff"
@@ -100,42 +145,14 @@ const Navigation = ({ data, navClass, children }) => {
                             <div
                                 className={`${
                                     isActive ? "flex" : "hidden"
-                                } lg:block absolute lg:relative top-14 lg:top-auto inset-x-0 bg-nav lg:bg-transparent`}
+                                } lg:block absolute lg:static top-14 lg:top-auto inset-x-0 bg-nav lg:bg-transparent`}
                             >
-                                <div className=" flex lg:flex-row flex-col justify-center items-center w-full -mx-4">
-                                    {navItemsHome.map((navItem, i) => {
-                                        if (
-                                            navItem.url.match(/^\s?http(s?)/gi)
-                                        ) {
-                                            return (
-                                                <div className="px-4 w-auto">
-                                                    <a
-                                                        className={navClass}
-                                                        href={navItem.url}
-                                                        key={i}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                    >
-                                                        {navItem.label}
-                                                    </a>
-                                                </div>
-                                            );
-                                        } else {
-                                            return (
-                                                <div className="px-4 w-auto">
-                                                    <Link
-                                                        className={navClass}
-                                                        to={navItem.url}
-                                                        key={i}
-                                                    >
-                                                        {navItem.label}
-                                                    </Link>
-                                                </div>
-                                            );
-                                        }
+                                <div className=" flex lg:flex-row flex-col justify-center items-center w-full">
+                                    {navbarItems.map((item, idx) => {
+                                        return <NavbarItem data={item} key={idx} />;
                                     })}
 
-                                    <div className="px-4 w-auto flex-grow">
+                                    {/* <div className="px-4 w-auto flex-grow">
                                         <Link
                                             className={`border border-white w-28 text-center rounded-md ${navClass}`}
                                             to="/contact-us/"
@@ -143,7 +160,7 @@ const Navigation = ({ data, navClass, children }) => {
                                         >
                                             Contact Us
                                         </Link>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
