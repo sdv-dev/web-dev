@@ -44,7 +44,7 @@ const ChevronMobile = ({isActive}) => {
 }
 
 
-const NavbarItem = ({ data, dark, idx }) => {
+const SdvNavbarItem = ({ data, dark, idx }) => {
   const [isActive, setActive] = useState(false);
   const subItems = data.subItems || null;
   const currentEl = useRef(null);
@@ -143,4 +143,4 @@ const NavbarItem = ({ data, dark, idx }) => {
 };
 
 
-export default NavbarItem
+export default SdvNavbarItem

@@ -171,6 +171,7 @@ export default function Hero({ downloads }) {
                   <a
                     href="https://sdv.dev/"
                     target="_blank"
+                    rel="noreferrer"
                     className="px-4 py-1 rounded-full inline-block border border-sdv-dark text-sm hover:bg-sdv-dark hover:text-white"
                   >
                     Open the Vault →

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import MeetTheTeam from "../../assets/meat-the-team.svg"
 
 
 const ChevronDesktop = () => {
@@ -44,7 +45,7 @@ const ChevronMobile = ({isActive}) => {
 }
 
 
-const NavbarItem = ({ data, dark, idx }) => {
+const CompanyNavbarItem = ({ data, dark, idx }) => {
   const [isActive, setActive] = useState(false);
   const subItems = data.subItems || null;
   const currentEl = useRef(null);
@@ -103,30 +104,43 @@ const NavbarItem = ({ data, dark, idx }) => {
             <div className="flex flex-wrap -mx-4">
             
               <div className="px-4 w-full md:w-8/12">
-              <div className=" flex flex-wrap -mx-4">
-                {Array.from(firstColItems).slice(0, 4).map((item, idx) => {
-                  return (
-                    <div className="px-4 w-full md:w-1/2" key={`nav-${idx}`}>
+              <div className=" flex flex-wrap items-center justify-center -mx-4">
+
+                    <div className="px-4 w-full md:w-1/2 max-w-xs" key={`nav-${idx}`}>
                       <a
-                        className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
-                        href={`${item.url}`}
+                        className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full max-w-xs block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
+                        href={`/team/`}
                       >
-                        <div className="flex justify-start items-center -mx-2">
-                          <div className="w-auto px-2 text-2xl font-bold">
-                            {item.icon}
-                          </div>
-                          <div className="w-auto px-2 xl:text-xl my-2 ">{item.title}</div>
-                        </div>
-                        <div className="opacity-70 text-sm xl:text-base" dangerouslySetInnerHTML={{ __html: item.text}} />
+                        <MeetTheTeam />
                       </a>
                     </div>
-                  );
-                })}
+
+                    <div className="px-4 w-full md:w-1/2 max-w-xs text-center" key={`nav-${idx}`}>
+                    <a
+                      href="/team/"
+                      className="inline-block rounded-full text-white px-10 py-3 font-bold hover:opacity-80 grad-bg"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
+                      }}
+                    >
+                      Meet the team!
+                    </a>
+                    </div>
+
               </div>
               </div>
               <div className="px-4 w-full md:w-4/12 border-l-2 border-gray-100">
-                <a href={lastColItem.url} className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full block rounded-lg xl:px-5 xl:py-4 px-4 py-3">
-                  <div className="font-bold text-xl mb-3">{lastColItem.title}</div>
+                <a
+                  className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
+                  href={`${lastColItem.url}`}
+                >
+                  <div className="flex justify-start items-center -mx-2">
+                    <div className="w-auto px-2 text-2xl font-bold">
+                      {lastColItem.icon}
+                    </div>
+                    <div className="w-auto px-2 xl:text-xl my-2 ">{lastColItem.title}</div>
+                  </div>
                   <div className="opacity-70 text-sm xl:text-base" dangerouslySetInnerHTML={{ __html: lastColItem.text}} />
                 </a>
               </div>
@@ -143,4 +157,4 @@ const NavbarItem = ({ data, dark, idx }) => {
 };
 
 
-export default NavbarItem
+export default CompanyNavbarItem

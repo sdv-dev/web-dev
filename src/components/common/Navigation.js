@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link } from "gatsby";
 import { Squash as Hamburger } from "hamburger-react";
 import PropTypes from "prop-types";
 import NavbarItem from "../NavbarItem";
 
+import SdvNavbarItem from "../NavbarItem-SDV";
+import CompanyNavbarItem from "../NavbarItem-Company";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faSlack } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faSlack, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 const navbarItems = [
@@ -49,7 +51,18 @@ const navbarItems = [
         }
       ],
     },
-    { name: "Company", url: "https://sdv.dev/SDV" },
+    { 
+        name: "Company",
+        text: `<p class='leading-tight'>Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems.</p>`,
+        subItems: [
+            {
+                title: "Linkedin",
+                icon: <FontAwesomeIcon  size="lg" icon={faLinkedin} />,
+                url: "https://www.linkedin.com/company/",
+                text: `<p>Visit DataCebo on LinkedIn</p>`
+            }
+        ]
+    },
     { name: "Contact Us", url: "/contact-us/" }
   ]
 
@@ -121,7 +134,7 @@ const Navigation = ({ data, navClass, children }) => {
 
     return (
         <nav
-            className={`h-20 flex flex-col justify-center items-center z-50 fixed w-full`}
+            className={`lg:h-auto h-20 flex flex-col justify-center items-center z-50 fixed w-full`}
             id="navbar"
             ref={ref}
         >
@@ -145,11 +158,17 @@ const Navigation = ({ data, navClass, children }) => {
                             <div
                                 className={`${
                                     isActive ? "flex" : "hidden"
-                                } lg:block absolute lg:static top-14 lg:top-auto inset-x-0 bg-nav lg:bg-transparent`}
+                                } lg:block absolute lg:static top-20 lg:top-auto inset-x-0 bg-nav lg:bg-transparent`}
                             >
                                 <div className=" flex lg:flex-row flex-col justify-center items-center w-full">
                                     {navbarItems.map((item, idx) => {
-                                        return <NavbarItem data={item} key={idx} />;
+                                        if ( item.name === 'SDV') {
+                                            return <SdvNavbarItem data={item} key={idx} idx={idx} />;
+                                        }
+                                        if ( item.name === 'Company') {
+                                            return <CompanyNavbarItem data={item} key={idx} idx={idx} />;
+                                        }
+                                        return <NavbarItem data={item} key={idx} idx={idx} />;
                                     })}
 
                                     {/* <div className="px-4 w-auto flex-grow">
