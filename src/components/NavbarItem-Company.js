@@ -106,9 +106,9 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
               <div className="px-4 w-full md:w-8/12">
               <div className=" flex flex-wrap items-center justify-center -mx-4">
 
-                    <div className="px-4 w-full md:w-1/2 max-w-xs" key={`nav-${idx}`}>
+                    <div className="px-4 w-auto" key={`nav-${idx}`}>
                       <a
-                        className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full max-w-xs block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
+                        className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full w-40 block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
                         href={`/team/`}
                       >
                         <MeetTheTeam />
