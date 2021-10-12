@@ -82,7 +82,7 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
     <li
       className={`${
         isActive ? `is-active` : ``
-      } block lg:inline-block lg:border-none  w-full lg:w-auto text-center`}
+      } block lg:inline-block lg:border-none w-full lg:w-auto text-center`}
       ref={currentEl}
       onMouseOver={onHover}
       onMouseLeave={onLeave}
@@ -97,7 +97,7 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
         </span>
       </button>
       <div className="bg-white lg:absolute lg:left-0 right-0 text-left lg:top-21 dr-dwn">
-        <div className="p-4 lg:p-8">
+        <div className="p-4 lg:p-8" style={{ maxHeight: "480px", overflow: "scroll"}}>
           <div className="text-sdv-dark mx-auto max-w-3xl pb-3 text-center leading-tight text-lg" dangerouslySetInnerHTML={{ __html: data.text}} />
           <div className="max-w-3xl h-0.5 bg-gray-100 mx-auto my-4"></div>
           <div className="container mx-auto">
@@ -130,18 +130,18 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
 
               </div>
               </div>
-              <div className="px-4 w-full md:w-4/12 border-l-2 border-gray-100">
+              <div className="px-4 w-full md:w-4/12 md:border-l-2 border-gray-100">
                 <a
                   className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
                   href={`${lastColItem.url}`}
                 >
-                  <div className="flex justify-start items-center -mx-2">
+                  <div className="flex justify-center sm:justify-start items-center -mx-2">
                     <div className="w-auto px-2 text-2xl font-bold">
                       {lastColItem.icon}
                     </div>
                     <div className="w-auto px-2 xl:text-xl my-2 ">{lastColItem.title}</div>
                   </div>
-                  <div className="opacity-70 text-sm xl:text-base" dangerouslySetInnerHTML={{ __html: lastColItem.text}} />
+                  <div className="opacity-70 text-sm xl:text-base text-center sm:text-right" dangerouslySetInnerHTML={{ __html: lastColItem.text}} />
                 </a>
               </div>
             </div>

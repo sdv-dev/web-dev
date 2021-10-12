@@ -58,7 +58,7 @@ const navbarItems = [
             {
                 title: "Linkedin",
                 icon: <FontAwesomeIcon  size="lg" icon={faLinkedin} />,
-                url: "https://www.linkedin.com/company/",
+                url: "https://www.linkedin.com/company/datacebo",
                 text: `<p>Visit DataCebo on LinkedIn</p>`
             }
         ]
@@ -158,28 +158,18 @@ const Navigation = ({ data, navClass, children }) => {
                             <div
                                 className={`${
                                     isActive ? "flex" : "hidden"
-                                } lg:block absolute lg:static top-20 lg:top-auto inset-x-0 bg-nav lg:bg-transparent`}
+                                } lg:block absolute lg:static top-20 lg:top-auto inset-x-0 bg-nav lg:bg-transparent `}
                             >
-                                <div className=" flex lg:flex-row flex-col justify-center items-center w-full">
+                                <div className=" flex lg:flex-row flex-col justify-center items-center w-full h-full">
                                     {navbarItems.map((item, idx) => {
                                         if ( item.name === 'SDV') {
                                             return <SdvNavbarItem data={item} key={idx} idx={idx} />;
-                                        }
-                                        if ( item.name === 'Company') {
+                                        } else if ( item.name === 'Company') {
                                             return <CompanyNavbarItem data={item} key={idx} idx={idx} />;
+                                        } else {
+                                            return <NavbarItem data={item} key={idx} idx={idx} />;
                                         }
-                                        return <NavbarItem data={item} key={idx} idx={idx} />;
                                     })}
-
-                                    {/* <div className="px-4 w-auto flex-grow">
-                                        <Link
-                                            className={`border border-white w-28 text-center rounded-md ${navClass}`}
-                                            to="/contact-us/"
-                                        
-                                        >
-                                            Contact Us
-                                        </Link>
-                                    </div> */}
                                 </div>
                             </div>
                         </div>
