@@ -64,7 +64,7 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
 
   if (subItems == null) {
     return (
-      <li className="block lg:inline-block lg:border-none w-full max-w-sm lg:w-auto text-center">
+      <li className="block lg:inline-block lg:border-none w-full lg:w-auto text-center">
         <a
           className="text-grey-3 inline-block text-white hover:opacity-80 w-full px-6 lg:px-6 py-4 lg:py-8 text-left"
           href={data.url}
@@ -88,7 +88,9 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
       onMouseLeave={onLeave}
       onMouseClick={onClick}
     >
-      <button className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full max-w-sm lg:w-auto focus:outline-none py-4 lg:py-8`}>
+      <button
+        onClick={() => setActive(!isActive)}
+        className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full lg:w-auto focus:outline-none py-4 lg:py-8`}>
         {data.name} {" "}
         <span className="inline-block float-right">
           <span className={` w-3.5 h-3.5 mt-1.5`}>
@@ -97,7 +99,7 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
         </span>
       </button>
       <div className="bg-white lg:absolute lg:left-0 right-0 text-left lg:top-21 dr-dwn">
-        <div className="p-4 lg:p-8" style={{ maxHeight: "480px", overflow: "scroll"}}>
+        <div className="p-4 lg:p-8" >
           <div className="text-sdv-dark mx-auto max-w-3xl pb-3 text-center leading-tight text-lg" dangerouslySetInnerHTML={{ __html: data.text}} />
           <div className="max-w-3xl h-0.5 bg-gray-100 mx-auto my-4"></div>
           <div className="container mx-auto">
@@ -141,7 +143,7 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
                     </div>
                     <div className="w-auto px-2 xl:text-xl my-2 ">{lastColItem.title}</div>
                   </div>
-                  <div className="opacity-70 text-sm xl:text-base text-center sm:text-right" dangerouslySetInnerHTML={{ __html: lastColItem.text}} />
+                  <div className="opacity-70 text-sm xl:text-base text-center sm:text-left" dangerouslySetInnerHTML={{ __html: lastColItem.text}} />
                 </a>
               </div>
             </div>

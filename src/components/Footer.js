@@ -46,14 +46,14 @@ export default function Footer() {
                     </div> */}
                     <div className="px-1">
                       <a target="_blank" rel="noopener" 
-                        to="https://twitter.com/" 
+                        href="https://twitter.com/" 
                         className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight hover:opacity-80 bg-sdv-offwhite">
                         <FontAwesomeIcon width="16" icon={faTwitter} />
                       </a>
                     </div>
                     <div className="px-1">
                       <a target="_blank" rel="noopener" 
-                        to="https://www.linkedin.com/company/datacebo" 
+                        href="https://www.linkedin.com/company/datacebo" 
                         className="w-10 h-10 flex justify-center items-center bg-sdv-mute inline-block rounded-full hover:bg-sdv-graylight hover:opacity-80 bg-sdv-offwhite">
                         <FontAwesomeIcon width="16" icon={faLinkedin} />
                       </a>

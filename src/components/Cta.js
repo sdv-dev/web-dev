@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "gatsby"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -15,13 +14,13 @@ export default function Cta() {
             <p className="text-white text-6xl font-bold leading-tight mb-6 lg:mb-0">Let's put synthetic data to work.</p>
           </div>
           <div className="flex justify-center items-center">
-            <Link to="https://github.com/sdv-dev" 
+            <a href="https://github.com/sdv-dev" 
               className="px-6 py-4 inline-block bg-white text-sdv-dark rounded-full font-semibold leading-none text-lg"
             target="_blank">
               <FontAwesomeIcon width="16" icon={faGithub} />
               {' '}
               View on Github
-            </Link>
+            </a>
           </div>
         </div>
       </div>

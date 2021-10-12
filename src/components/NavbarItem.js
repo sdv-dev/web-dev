@@ -63,7 +63,7 @@ const NavbarItem = ({ data, dark, idx }) => {
 
   if (subItems == null) {
     return (
-      <li className="block lg:inline-block lg:border-none w-full max-w-sm lg:w-auto text-center">
+      <li className="block lg:inline-block lg:border-none w-full lg:w-auto text-center">
         <a
           className="text-grey-3 inline-block text-white hover:opacity-80 w-full px-6 lg:px-6 py-4 lg:py-8 text-left"
           href={data.url}
@@ -87,7 +87,9 @@ const NavbarItem = ({ data, dark, idx }) => {
       onMouseLeave={onLeave}
       onMouseClick={onClick}
     >
-      <button className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full max-w-sm lg:w-auto focus:outline-none py-4 lg:py-8`}>
+      <button 
+        onClick={() => setActive(!isActive)}
+        className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full lg:w-auto focus:outline-none py-4 lg:py-8`}>
         {data.name} {" "}
         <span className="inline-block float-right">
           <span className={` w-3.5 h-3.5 mt-1.5`}>
