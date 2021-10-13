@@ -18,7 +18,7 @@ export default function Hero({ downloads }) {
       icon: "/single-table.svg",
       name: "Comprehensive",
       text:
-        "The SDV is based on over 5 years of research at MIT. We offer multiple machine learning models, benchmarking and evaluation frameworks.",
+        "We offer multiple machine learning models, benchmarking and evaluation frameworks.",
       github: "",
       docs: "",
       userguide: "",
