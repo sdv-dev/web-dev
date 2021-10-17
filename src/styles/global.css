@@ -2,7 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
+
+  .nav-collapse {
+    height: calc(100vh - 80px);
+  }
+  
+  @screen lg {
+    .nav-collapse {
+      height: auto
+    }
+  }
 
   body {
     @apply font-cern;

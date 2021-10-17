@@ -34,7 +34,7 @@ const PostDefaultLayout = ({ data, children, bodyClass, isPost }) => {
           </div>
         </Link>
       </Navigation>
-      <main className="">
+      <main className="relative z-0">
         {children}
       </main>
     </>

@@ -156,14 +156,12 @@ const Navigation = ({ data, navClass, children }) => {
                         </div>
                         <div className="md:order-1 w-auto lg:order-2">
                             <div
-                                style={{
-                                    maxHeight: "calc(100vh - 80px)"
-                                }}
+                                
                                 className={`${
                                     isActive ? "flex" : "hidden"
-                                } lg:block absolute lg:static top-20 lg:top-auto inset-x-0 bg-nav lg:bg-transparent overflow-scroll z-30`}
+                                } lg:block nav-collapse absolute lg:static top-20 lg:top-auto inset-x-0 bg-nav lg:bg-transparent overflow-scroll z-30`}
                             >
-                                <div className=" flex lg:flex-row flex-col justify-center items-center w-full h-full">
+                                <div className=" flex lg:flex-row flex-col lg:justify-center items-center w-full h-full relative lg:static z-50">
                                     {navbarItems.map((item, idx) => {
                                         if ( item.name === 'SDV') {
                                             return <SdvNavbarItem data={item} key={idx} idx={idx} />;
