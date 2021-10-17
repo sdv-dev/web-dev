@@ -67,7 +67,7 @@ const SdvNavbarItem = ({ data, dark, idx }) => {
       onClick={onClick}
     >
       <button 
-        className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full lg:w-auto focus:outline-none py-4 lg:py-8 border-b lg:border-none border-white`}>
+        className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full lg:w-auto focus:outline-none py-4 lg:py-8 border-b lg:border-none border-white pointer-events-none lg:pointer-events-auto`}>
         {data.name} {" "} 
         <span className="inline-block float-right">
           <span className={` w-3.5 h-3.5 mt-1.5`}>
