@@ -1,75 +1,52 @@
 import React, { useRef, useState } from "react";
-
-
-const ChevronDesktop = () => {
-  return (
-    <svg
-      className="ml-2 hidden lg:inline-block"
-      xmlns="http://www.w3.org/2000/svg"
-      width="14"
-      height="14"
-      fill="none"
-      viewBox="0 0 14 8"
-    >
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M1.667 1L7 6.333 12.333 1"
-      ></path>
-    </svg>
-  );
-}
-
-const ChevronMobile = ({isActive}) => {
-  return (
-    <svg
-      className={`inline-block lg:hidden rotate-0 ml-3 transform duration-200 ${!isActive ? '' : ' rotate-90'}`}
-      xmlns="http://www.w3.org/2000/svg"
-      width="8"
-      height="8"
-      fill="none"
-      viewBox="0 0 7 10"
-    >
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M1.5 1l4 4-4 4"
-      ></path>
-    </svg>
-  )
-}
-
-
+import ChevronMobile from "./common/chevron-mobile";
+import useOutsideClick from "../utils/outside-click";
 const SdvNavbarItem = ({ data, dark, idx }) => {
   const [isActive, setActive] = useState(false);
   const subItems = data.subItems || null;
   const currentEl = useRef(null);
-  const onHover = (e) => setActive(true);
   const onClick = (e) => {
-    if (isActive) {
-      setActive(false);
-      return;
-    } else setActive(true);
+    setActive(true);
+  }
+  const onHover = (e) => {
+    // console.log('hover', e.target, currentEl.current.contains(e.target));  
+    setActive(true);
   };
-  const onLeave = (e) => {
-    if (currentEl.current.contains(e.target)) {
+  const onFocus = (e) => {
+    // console.log('focus', e.target, currentEl.current.contains(e.target));
+    setActive(true)
+  };
+  const onBlur = (e) => {
+    // console.log('blur', e.target, currentEl.current.contains(e.target));
+    if (!currentEl.current.contains(e.target)) {
       setActive(false);
     }
   };
+
+  const onLeave = (e) => {
+    // console.log('leave', e.target, e.target != currentEl.current, currentEl.current.contains(e.target));
+    if (e.target != currentEl.current && currentEl.current.contains(e.target)) {
+      setActive(false);
+    }
+  };
+
+
+  useOutsideClick(currentEl, () => {
+    if (isActive) {
+      setActive(!isActive);
+    }
+  });
+  
 
   if (subItems == null) {
     return (
       <li className="block lg:inline-block lg:border-none w-full lg:w-auto text-center">
         <a
-          className="text-grey-3 inline-block text-white hover:opacity-80 w-full px-6 lg:px-6 py-4 lg:py-8 text-left"
+          className="text-grey-3 inline-block text-white hover:opacity-80 w-full px-6 lg:px-6 py-4 lg:py-8 text-left border-b lg:border-none border-white"
           href={data.url}
         >
-          {data.name}
-        </a>
+          {data.name} {isActive}
+        </a> 
       </li>
     );
   }
@@ -85,12 +62,13 @@ const SdvNavbarItem = ({ data, dark, idx }) => {
       ref={currentEl}
       onMouseOver={onHover}
       onMouseLeave={onLeave}
-      onMouseClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onClick={onClick}
     >
       <button 
-        onClick={() => setActive(!isActive)}
-        className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full lg:w-auto focus:outline-none py-4 lg:py-8`}>
-        {data.name} {" "}
+        className={`${ idx === 0 ? 'lg:pr-6 lg:pl-12' : 'lg:px-6'} px-6 text-left text-white hover:opacity-80 w-full lg:w-auto focus:outline-none py-4 lg:py-8 border-b lg:border-none border-white`}>
+        {data.name} {" "} 
         <span className="inline-block float-right">
           <span className={` w-3.5 h-3.5 mt-1.5`}>
             <ChevronMobile isActive={isActive} />
@@ -108,7 +86,7 @@ const SdvNavbarItem = ({ data, dark, idx }) => {
               <div className=" flex flex-wrap -mx-4">
                 {Array.from(firstColItems).slice(0, 4).map((item, idx) => {
                   return (
-                    <div className="px-4 w-full md:w-1/2" key={`nav-${idx}`}>
+                    <div className="px-4 w-full md:w-1/2" key={`nav-sdv-${idx}`}>
                       <a
                         className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
                         href={`${item.url}`}
@@ -134,10 +112,6 @@ const SdvNavbarItem = ({ data, dark, idx }) => {
               </div>
             </div>
           </div>
-
-          <ul>
-            
-          </ul>
         </div>
       </div>
     </li>

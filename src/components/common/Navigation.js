@@ -3,6 +3,8 @@ import { Squash as Hamburger } from "hamburger-react";
 import PropTypes from "prop-types";
 import NavbarItem from "../NavbarItem";
 
+import useOutsideClick from "../../utils/outside-click";
+
 import SdvNavbarItem from "../NavbarItem-SDV";
 import CompanyNavbarItem from "../NavbarItem-Company";
 
@@ -104,33 +106,31 @@ const Navigation = ({ data, navClass, children }) => {
     
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
-
-    const useOutsideClick = (ref, callback) => {
-        const handleClick = (e) => {
-            if (ref.current && !ref.current.contains(e.target)) {
-                callback();
-            }
-        };
-
-        useEffect(() => {
-            document.addEventListener("click", handleClick);
-
-            return () => {
-                document.removeEventListener("click", handleClick);
-            };
-        });
-    };
+    }, []);
 
     useOutsideClick(ref, () => {
-        if (isActive) {
-            setNavActive(!isActive);
-        }
+        console.log('outside click')
+        setNavActive(false);
+            document.body.classList.remove('overflow-hidden');
+            document.querySelector('body main').classList.remove('pointer-events-none');
+        // if (isActive) {
+        //     setNavActive(!isActive);
+        //     document.body.classList.remove('overflow-hidden');
+        // }
     });
 
     const [isActive, setNavActive] = useState(false);
 
-    const handleNavCollapse = () => setNavActive(!isActive);
+    const handleNavCollapse = () => {
+        setNavActive(!isActive);
+        if (!isActive) {
+            document.body.classList.add('overflow-hidden');
+            document.querySelector('body main').classList.add('pointer-events-none');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+            document.querySelector('body main').classList.remove('pointer-events-none');
+        };
+    };
 
     return (
         <nav
@@ -146,7 +146,7 @@ const Navigation = ({ data, navClass, children }) => {
                             rounded
                             size={20}
                             toggled={isActive}
-                            toggle={setNavActive}
+                            toggle={handleNavCollapse}
                             onClick={handleNavCollapse}
                         />
                     </div>
@@ -156,9 +156,12 @@ const Navigation = ({ data, navClass, children }) => {
                         </div>
                         <div className="md:order-1 w-auto lg:order-2">
                             <div
+                                style={{
+                                    maxHeight: "calc(100vh - 80px)"
+                                }}
                                 className={`${
                                     isActive ? "flex" : "hidden"
-                                } lg:block absolute lg:static top-20 lg:top-auto inset-x-0 bg-nav lg:bg-transparent `}
+                                } lg:block absolute lg:static top-20 lg:top-auto inset-x-0 bg-nav lg:bg-transparent overflow-scroll z-30`}
                             >
                                 <div className=" flex lg:flex-row flex-col justify-center items-center w-full h-full">
                                     {navbarItems.map((item, idx) => {

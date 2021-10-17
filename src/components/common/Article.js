@@ -26,29 +26,17 @@ const PostDefaultLayout = ({ data, children, bodyClass, isPost }) => {
         <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
       </Helmet>
 
-      <div className="">
-        <div className="viewport-top">
-          <Navigation navClass="block my-4 lg:my-0 px-2 py-2 leading-none rounded-md text-base hover:underline-none focus:outline-none transition duration-150 ease-in-out navbar-item">
-            <Link to="/">
-              <div className="w-auto max-w-xs">
-                <Logo />
-              </div>
-            </Link>
-          </Navigation>
 
-          <main className="">
-            {children}
-            {isPost ? (
-              <div className="container mx-auto">
-                <MoreArticles />
-              </div>
-            ) : (
-              ""
-            )}
-          </main>
-        </div>
-        
-      </div>
+      <Navigation navClass="block my-4 lg:my-0 px-2 py-2 leading-none rounded-md text-base hover:underline-none focus:outline-none transition duration-150 ease-in-out navbar-item">
+        <Link to="/">
+          <div className="w-auto max-w-xs">
+            <Logo />
+          </div>
+        </Link>
+      </Navigation>
+      <main className="">
+        {children}
+      </main>
     </>
   );
 };
