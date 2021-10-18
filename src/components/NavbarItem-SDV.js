@@ -25,7 +25,7 @@ const SdvNavbarItem = ({ data, dark, idx }) => {
 
   const onLeave = (e) => {
     // console.log('leave', e.target, e.target != currentEl.current, currentEl.current.contains(e.target));
-    if (e.target != currentEl.current && currentEl.current.contains(e.target)) {
+    if (e.target !== currentEl.current && currentEl.current.contains(e.target)) {
       setActive(false);
     }
   };

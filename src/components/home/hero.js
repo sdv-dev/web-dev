@@ -71,7 +71,7 @@ export default function Hero({ downloads }) {
 
   return (
     <div>
-      <div className="w-full relative pt-40 lg:pt-48 lg:pb-28 pb-28 bg-sdv-dark">
+      <div className="w-full relative pt-40 lg:pt-48 lg:pb-28 pb-28 bg-nav">
         <div className="absolute inset-0 z-10">
           <Img alt="Image cover" objectFit="cover" className="object-cover h-full" fluid={data.bgImage.childImageSharp.fluid} />
         </div>
