@@ -110,6 +110,7 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
               </div>
               </div>
               <div className="px-4 w-full md:w-4/12 md:border-l-2 border-gray-100">
+                <div className="h-0.5 bg-gray-100 mt-6 mb-2 -mx-4"> </div>
                 <a
                   className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
                   href={`${lastColItem.url}`}
