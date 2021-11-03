@@ -157,7 +157,7 @@ export default function HomePage() {
                         >
                           <div className='w-40  mx-auto relative mb-4'>
                             <div className='z-0 w-40 h-40 rounded-full absolute right-2 bg-sdv-primary'></div>
-                            <img src={`${item.image}`} alt={item.name} 
+                            <img src={`${config.sitePath == '/web-dev/' ? '/web-dev' : ''}${item.image}`} alt={item.name} 
                               className="w-full h-auto block mx-auto rounded-full relative z-10" />
                             <div className='z-0 w-40 h-40 rounded-full top-0 absolute z-10 text-white flex flex-col justify-center team-item-overlay'
                               style={{

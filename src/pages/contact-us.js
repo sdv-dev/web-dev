@@ -2,15 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Article } from "../components/common";
 import config from "../utils/siteConfig";
 import Seo from "../components/Seo";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 
 import Footer from "../components/Footer";
-import BottomWave from "../components/home/wave-top-white";
-import TopWave from "../components/home/wave-bottom-white";
 
 export default function ContactPage() {
 
@@ -33,15 +29,7 @@ export default function ContactPage() {
       sfdcCampaignId: "7014P000001779tQAA",
     })
   }
-//   <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
-// <script>
-//   hbspt.forms.create({
-// 	region: "na1",
-// 	portalId: "8685431",
-// 	formId: "3c47351e-a9e7-4589-883c-374b5725f234"
-// });
-// </script>
-  
+
   useEffect(() => {
     window.addEventListener("message", onHubSubmit)
 
@@ -111,8 +99,8 @@ export default function ContactPage() {
             <div className="flex flex-wrap justify-around -mx-4">
               <div className="text-white w-full md:w-5/12 text-center md:text-left px-4">
                 <h1 className='text-white font-normal text-7xl mb-8 lg:mb-12'>Get in touch!</h1>
-                <p className='mb-8'>Are you looking to incorporate synthetic data into your company's workflow? Contact us to discuss your needs.</p>
-                <p className='mb-8'>Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems. Let's work together to put synthetic data to work!</p>
+                <p className='mb-6'>Are you looking to incorporate synthetic data into your company's workflow? Contact us to discuss your needs.</p>
+                <p className='mb-6'>Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems. Let's work together to put synthetic data to work!</p>
               </div>
               <div className="text-white w-full md:w-5/12 text-center px-4">
                 <div
@@ -136,9 +124,6 @@ export default function ContactPage() {
 
         
         </div>
-
-
-      
 
         <div className="w-full relative bg-sdv-dark border-t-2 border-sdv-primary">
         <div className="absolute inset-0 z-0">
