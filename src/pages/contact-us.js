@@ -111,8 +111,8 @@ export default function ContactPage() {
             <div className="flex flex-wrap justify-around -mx-4">
               <div className="text-white w-full md:w-5/12 text-center md:text-left px-4">
                 <h1 className='text-white font-normal text-7xl mb-8 lg:mb-12'>Get in touch!</h1>
-                <p className='my-8'>Are you looking to incorporate synthetic data into your company's workflow? Contact us to discuss your needs.</p>
-                <p className='my-8'>Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems. Let's work together to put synthetic data to work!</p>
+                <p className='mb-8'>Are you looking to incorporate synthetic data into your company's workflow? Contact us to discuss your needs.</p>
+                <p className='mb-8'>Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems. Let's work together to put synthetic data to work!</p>
               </div>
               <div className="text-white w-full md:w-5/12 text-center px-4">
                 <div
