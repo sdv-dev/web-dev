@@ -143,3 +143,11 @@ pre[class*="language-"] {
 .is-active > .dr-dwn{
   @apply block lg:animate-slide-up;
 }
+
+.team-item-overlay {
+  @apply hidden;
+}
+
+.team-item:hover .team-item-overlay {
+  @apply flex;
+}

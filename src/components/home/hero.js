@@ -136,7 +136,7 @@ export default function Hero({ downloads }) {
                             target="_blank"
                             className="h-full block transition-shadow"
                           >
-                            <img src={`${item.icon}`} alt={item.name} className="mb-3" />
+                            <img src={`${item.icon}`} alt={item.name} className="mb-3 h-9 w-9" />
                             <p className="font-bold text-lg lg:text-xl">
                               {item.name}
                             </p>
@@ -155,7 +155,7 @@ export default function Hero({ downloads }) {
                           target="_blank"
                           className="h-full block transition-shadow"
                         >
-                          <img src={`${item.icon}`} alt={item.name} className="mb-3" />
+                          <img src={`${item.icon}`} alt={item.name} className="mb-3 h-9 w-9" />
                           <p className="font-bold text-lg lg:text-xl">
                             {item.name}
                           </p>
