@@ -69,8 +69,8 @@ export default function HomePage() {
    {
      name: "Plamen Valentinov",
      title: 'Developer Advocate & Software Engineer',
-     text: 'Previously at',
-     mit: 'MIT',
+     text: '',
+     mit: 'Previously at MIT',
      image: '/team/PlamonValentinovKolev.png',
      linkedin: "https://www.linkedin.com/in/plamen-valentinov-kolev/",
      twitter: "https://twitter.com/pvkdeveloper",
