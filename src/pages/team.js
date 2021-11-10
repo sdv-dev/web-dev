@@ -135,11 +135,11 @@ export default function HomePage() {
   return (
     <Article>
       <Seo
-        title={config.siteTitleMeta}
-        description={config.siteDescriptionMeta}
+        title="Our Team | Datacebo"
+        description="Meet the DataCebo Team | Datacebo"
         type="website"
         image={`/datacebo.jpg`}
-        canonical={`https://sdv.dev/`}
+        canonical={`https://datacebo.com/team/`}
       />
 
       <div className="mx-auto" style={{ maxWidth: "1680px"}}>

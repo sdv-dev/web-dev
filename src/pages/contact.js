@@ -91,11 +91,11 @@ export default function ContactPage() {
   return (
     <Article>
       <Seo
-        title={config.siteTitleMeta}
-        description={config.siteDescriptionMeta}
+        title="Get in touch with Datacebo"
+        description="Contact us to discuss your needs | Datacebo"
         type="website"
         image={`/datacebo.jpg`}
-        canonical={`https://sdv.dev/`}
+        canonical={`https://datacebo.com/contact/`}
       />
 
       <div className="mx-auto overflow-hidden" style={{ maxWidth: "1680px"}}>
