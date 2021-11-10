@@ -36,7 +36,7 @@ const navbarItems = [
           icon: <FontAwesomeIcon size="lg" icon={faCopy} />,
           url: "https://sdv.dev/SDV/",
           text:
-            "Start here to discover the open source libraries in the SDV ecosystem.",
+            "Explore the user guides and API to model your data",
         },
         {
           title: "Slack",

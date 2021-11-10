@@ -79,38 +79,36 @@ const CompanyNavbarItem = ({ data, dark, idx }) => {
         <div className="p-4 lg:p-8" >
           <div className="text-sdv-dark mx-auto max-w-3xl pb-3 text-center leading-tight text-lg" dangerouslySetInnerHTML={{ __html: data.text}} />
           <div className="max-w-3xl h-0.5 bg-gray-100 mx-auto my-4"></div>
-          <div className="container mx-auto">
-            <div className="flex flex-wrap -mx-4">
+          <div className="container mx-auto max-w-5xl">
+            <div className="flex flex-wrap justify-center -mx-4">
             
-              <div className="px-4 w-full md:w-8/12">
+              <div className="px-4 w-full md:w-6/12">
               <div className=" flex flex-wrap items-center justify-center -mx-4">
 
                     <div className="px-4 w-auto" key={`nav-${idx}`}>
-                      <a
-                        className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full w-40 block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
-                        href={`/team/`}
+                      <div
+                        className="bg-white text-sdv-dark w-full w-40 block rounded-lg xl:py-4 px-4 py-3"
                       >
                         <MeetTheTeam />
-                      </a>
+                      </div>
                     </div>
 
-                    <div className="px-4 w-full md:w-1/2 max-w-xs text-center" key={`nav-company-${idx}`}>
-                    <a
-                      href="/team/"
-                      className="inline-block rounded-full text-white px-10 py-3 font-bold hover:opacity-80 grad-bg"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
-                      }}
-                    >
-                      Meet the team!
-                    </a>
+                    <div className="px-4 w-full md:w-auto max-w-xs text-center" key={`nav-company-${idx}`}>
+                      <a
+                        href="/team/"
+                        className="inline-block rounded-full text-white px-10 py-3 font-bold hover:opacity-80 grad-bg"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(to right, #03B0F2 1.57%, #01E0C9 100%);",
+                        }}
+                      >
+                        Meet the team!
+                      </a>
                     </div>
 
               </div>
               </div>
               <div className="px-4 w-full md:w-4/12 md:border-l-2 border-gray-100">
-                <div className="h-0.5 bg-gray-100 mt-6 mb-2 -mx-4"> </div>
                 <a
                   className="bg-white hover:bg-sdv-navitem text-sdv-dark hover:text-white w-full block rounded-lg xl:px-5 xl:py-4 px-4 py-3"
                   href={`${lastColItem.url}`}

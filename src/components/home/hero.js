@@ -131,8 +131,8 @@ export default function Hero({ downloads }) {
                     return (
                       <div className="w-full my-4 lg:my-0 sm:w-4/12 px-4 lg:px-10 mb-4 lg:border-r lg:border-l border-dashed border-offwhite">
                         <div className="">
-                          <Link
-                            to={item.userguide}
+                          <div
+                            // to={item.userguide}
                             target="_blank"
                             className="h-full block transition-shadow"
                           >
@@ -141,7 +141,7 @@ export default function Hero({ downloads }) {
                               {item.name}
                             </p>
                             <p className="text-base">{item.text}</p>
-                          </Link>
+                          </div>
                         </div>
                       </div>
                     );
@@ -150,8 +150,8 @@ export default function Hero({ downloads }) {
                   return (
                     <div className="w-full my-4 lg:my-0 sm:w-4/12 px-4 lg:px-10 mb-4">
                       <div className="">
-                        <Link
-                          to={item.userguide}
+                        <div
+                          // to={item.userguide}
                           target="_blank"
                           className="h-full block transition-shadow"
                         >
@@ -160,7 +160,7 @@ export default function Hero({ downloads }) {
                             {item.name}
                           </p>
                           <p className="text-base">{item.text}</p>
-                        </Link>
+                        </div>
                       </div>
                     </div>
                   );

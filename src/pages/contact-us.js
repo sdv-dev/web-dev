@@ -97,15 +97,22 @@ export default function ContactPage() {
           </div>
           <div className="container mx-auto relative z-10">
             <div className="flex flex-wrap justify-around -mx-4">
+              <div className="w-full md:w-5/12  px-4">
+                <h1 className='text-white font-normal text-7xl mb-6'>Get in touch!</h1>
+              </div>
+              <div className="w-full md:w-5/12  px-4">
+                
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-around -mx-4">
               <div className="text-white w-full md:w-5/12 text-center md:text-left px-4">
-                <h1 className='text-white font-normal text-7xl mb-8 lg:mb-12'>Get in touch!</h1>
                 <p className='mb-6'>Are you looking to incorporate synthetic data into your company's workflow? Contact us to discuss your needs.</p>
                 <p className='mb-6'>Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems. Let's work together to put synthetic data to work!</p>
               </div>
               <div className="text-white w-full md:w-5/12 text-center px-4">
                 <div
                   id="hubspotForm"
-                  className={`${ formSubmitted ? `hidden` : `block`} px-8 py-10 text-white rounded-3xl flex flex-wrap`}
+                  className={`${ formSubmitted ? `hidden` : `block`} px-8 text-white rounded-3xl flex flex-wrap -mt-4`}
                   style={{
                     minHeight: "320px",
                   }}
