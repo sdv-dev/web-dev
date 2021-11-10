@@ -63,6 +63,14 @@ export default function ContactPage() {
           }
         }
       }
+      bgImageSm: file(relativePath: { eq: "data-cebo-bg-sm.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 480) {
+            src
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
       midBg: file(relativePath: { eq: "mid-bg.png" }) {
         childImageSharp {
           fluid(maxWidth: 1600) {
@@ -93,26 +101,26 @@ export default function ContactPage() {
       <div className="mx-auto overflow-hidden" style={{ maxWidth: "1680px"}}>
         <div className="w-full relative pt-40 lg:pt-48 lg:pb-28 pb-28 bg-nav">
           <div className="absolute inset-0 z-10">
-            <Img alt="Image cover" objectFit="cover" className="object-cover h-full" fluid={data.bgImage.childImageSharp.fluid} />
+            <Img alt="Image cover" objectFit="cover" className="object-cover h-full hidden md:block" fluid={data.bgImage.childImageSharp.fluid} />
+            <Img alt="Image cover" objectFit="cover" className=" h-full md:hidden" fluid={data.bgImageSm.childImageSharp.fluid} />
           </div>
-          <div className="container mx-auto relative z-10">
+          <div className="container mx-auto relative z-10  pb-64 md:pb-20">
             <div className="flex flex-wrap justify-around -mx-4">
               <div className="w-full md:w-5/12  px-4">
                 <h1 className='text-white font-normal text-7xl mb-6'>Get in touch!</h1>
               </div>
               <div className="w-full md:w-5/12  px-4">
-                
               </div>
             </div>
             <div className="flex flex-wrap justify-around -mx-4">
-              <div className="text-white w-full md:w-5/12 text-center md:text-left px-4">
+              <div className="text-white w-full md:w-5/12 px-4 mb-8">
                 <p className='mb-6'>Are you looking to incorporate synthetic data into your company's workflow? Contact us to discuss your needs.</p>
                 <p className='mb-6'>Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems. Let's work together to put synthetic data to work!</p>
               </div>
               <div className="text-white w-full md:w-5/12 text-center px-4">
                 <div
                   id="hubspotForm"
-                  className={`${ formSubmitted ? `hidden` : `block`} px-8 text-white rounded-3xl flex flex-wrap -mt-4`}
+                  className={`${ formSubmitted ? `hidden` : `block`} md:px-8 text-white rounded-3xl flex flex-wrap -mt-4`}
                   style={{
                     minHeight: "320px",
                   }}

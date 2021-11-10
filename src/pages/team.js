@@ -99,6 +99,14 @@ export default function HomePage() {
           }
         }
       }
+      bgImageSm: file(relativePath: { eq: "data-cebo-bg-sm.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 480) {
+            src
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
       midBg: file(relativePath: { eq: "mid-bg.png" }) {
         childImageSharp {
           fluid(maxWidth: 1600) {
@@ -129,7 +137,8 @@ export default function HomePage() {
       <div className="mx-auto" style={{ maxWidth: "1680px"}}>
         <div className="w-full relative pt-40 lg:pt-48 lg:pb-28 pb-28 bg-nav">
           <div className="absolute inset-0 z-10">
-            <Img alt="Image cover" objectFit="cover" className="object-cover h-full" fluid={data.bgImage.childImageSharp.fluid} />
+            <Img alt="Image cover" objectFit="cover" className="object-cover h-full hidden md:block" fluid={data.bgImage.childImageSharp.fluid} />
+            <Img alt="Image cover" objectFit="cover" className=" h-full md:hidden" fluid={data.bgImageSm.childImageSharp.fluid} />
           </div>
           <div className="container mx-auto relative z-10">
             <div className="flex flex-col justify-center items-center -mx-4">
@@ -142,7 +151,7 @@ export default function HomePage() {
 
           <div className="mx-auto container relative mt-16 z-10 -mb-10 lg:-mb-40 px-4">
           <div className="flex flex-wrap items-center justify-center -mx-4">
-            <div className="w-full max-w-6xl bg-white px-8 py-6 lg:px-14 lg:pt-20 lg:pb-40 rounded-20">
+            <div className="w-full max-w-6xl bg-white px-8 py-6 lg:px-14 lg:pt-20 lg:pb-40 rounded-20 mx-6 md:mx-0">
               <div className="flex flex-wrap justify-center items- -mx-4 lg:-mx-10">
                 {team.map((item, idx) => {
                   
@@ -212,7 +221,7 @@ export default function HomePage() {
             >
               <div className="container mx-auto pt-2 pb-2">
                 <div className="flex flex-wrap items-center justify-center text-center -mx-4">
-                  <div className="w-full max-w-3xl px-4">
+                  <div className="w-full max-w-3xl md:px-4 px-10">
                     <p className="text-xl font-bold text-white mb-8">
                       Looking to integrate synthetic data into your business workflow?
                     </p>
