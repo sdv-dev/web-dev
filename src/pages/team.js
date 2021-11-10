@@ -24,7 +24,8 @@ export default function HomePage() {
    {
      name: "Kalyan Veeramachaneni",
      title: 'Co-Founder',
-     text: 'Previously at Feature Labs (acquired Alteryx), PatternEx (acquired Corelight)MIT',
+     text: 'Previously at Feature Labs (acq. Alteryx), PatternEx (acq. Corelight)',
+     mit: 'MIT',
      image: '/team/kalyan.png',
      linkedin: "https://www.linkedin.com/in/kalyan-veeramachaneni-9861b821/",
      twitter: "https://twitter.com/kveeramac",
@@ -32,7 +33,8 @@ export default function HomePage() {
    {
      name: "Carles Sala",
      title: 'VP of Architecture & Engineering, Co-Founder',
-     text: 'Previously at MIT',
+     text: '',
+     mit: 'Previously at MIT',
      image: '/team/carles.png',
      linkedin: "https://www.linkedin.com/in/carlessalacladellas/",
      twitter: "https://twitter.com/csalacat",
@@ -40,7 +42,8 @@ export default function HomePage() {
    {
      name: "Neha Patki",
      title: "Director of Product, Co-Founder",
-     text: "Previously at Youtube, Google MIT 2016",
+     text: "Previously at Youtube, Google",
+     mit: 'MIT 2016',
      image: "/team/neha.png",
      linkedin: "https://www.linkedin.com/in/nehapatki/",
      twitter: "https://twitter.com/n4atki",
@@ -48,7 +51,8 @@ export default function HomePage() {
    {
      name: "Saman Amarsinghe",
      title: 'Co-Founder',
-     text: 'Previously at Determina (acquired VMWare) MIT',
+     text: 'Previously at Determina (acq. VMWare)',
+     mit: 'MIT',
      image: '/team/saman.png',
      linkedin: "https://www.linkedin.com/in/saman/ ",
      twitter: "https://twitter.com/samanprabhath",
@@ -56,7 +60,8 @@ export default function HomePage() {
    {
      name: "Andrew Montanez",
      title: 'Senior Software Engineer',
-     text: 'Previously at Rev MIT 2018',
+     text: 'Previously at Rev',
+     mit: 'MIT 2018',
      image: '/team/Andrew.png',
      linkedin: "https://www.linkedin.com/in/andrew-montanez-593247b2/",
      twitter: "",
@@ -64,7 +69,8 @@ export default function HomePage() {
    {
      name: "Plamen Valentinov",
      title: 'Developer Advocate & Software Engineer',
-     text: 'Previously at MIT',
+     text: 'Previously at',
+     mit: 'MIT',
      image: '/team/PlamonValentinovKolev.png',
      linkedin: "https://www.linkedin.com/in/plamen-valentinov-kolev/",
      twitter: "https://twitter.com/pvkdeveloper",
@@ -72,7 +78,8 @@ export default function HomePage() {
    {
      name: "Katharine Xiao",
      title: 'Senior Software Engineer',
-     text: 'Previously at Facebook, Rubrik MIT 2017',
+     text: 'Previously at Facebook, Rubrik',
+     mit: 'MIT 2017',
      image: '/team/Katharine.png',
      linkedin: "https://www.linkedin.com/in/katharine-x-5238365a/",
      twitter: "",
@@ -80,7 +87,8 @@ export default function HomePage() {
    {
      name: "Felipe Hofmann",
      title: 'Software Engineer',
-     text: 'MIT 2020',
+     text: '',
+     mit: 'MIT 2020',
      image: '/team/felipe-hoffman.png',
      linkedin: "https://www.linkedin.com/in/felipe-hofmann-347231a8/",
      twitter: "",
@@ -192,7 +200,8 @@ export default function HomePage() {
                             {item.name}
                           </p>
                           <p className="text-base leading-tight my-1">{item.title}</p>
-                          <p className="text-xs leading-tight my-1">{item.text}</p>
+                          {item.text && <p className="text-xs leading-tight my-1">{item.text}</p>}
+                          {item.mit && <p className="text-xs leading-tight my-1">{item.mit}</p>}
                         </div>
                       </div>
                     </div>

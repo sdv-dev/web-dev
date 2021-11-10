@@ -166,7 +166,7 @@ export default function Hero({ downloads }) {
                   );
                 })}
               </div>
-              <div className="flex flex-wrap -mx-4 my-4">
+              <div className="flex flex-wrap -mx-4 mt-8 mb-4">
                 <div className="px-4 w-full lg:text-right text-center">
                   <a
                     href="https://sdv.dev/"
