@@ -71,7 +71,7 @@ export default function Footer() {
                       <li className="mb-4">
                         <Link className="hover:underline opacity-60 hover:opacity-100" to="#">Contact Us</Link></li>
                       <li className="mb-4">
-                        <Link className="hover:underline opacity-60 hover:opacity-100" to="#">About Us</Link></li>
+                        <Link className="hover:underline opacity-60 hover:opacity-100" to="/team/">About Us</Link></li>
                       {/* <li className="mb-4">
                         <Link className="hover:underline opacity-60 hover:opacity-100" to={`#`}>Careers</Link></li> */}
                       

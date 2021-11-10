@@ -65,7 +65,7 @@ const navbarItems = [
             }
         ]
     },
-    { name: "Contact Us", url: "/contact-us/" }
+    { name: "Contact Us", url: "/contact/" }
   ]
 
 
