@@ -144,14 +144,14 @@ export default function HomePage() {
             <div className="flex flex-col justify-center items-center -mx-4">
               <div className="text-white w-auto max-w-3xl text-center px-4">
                 <h1 className='text-white font-normal text-7xl mb-8 lg:mb-12'>Meet the DataCebo Team</h1>
-                <p className="text-2xl">Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems.</p>
+                <p className="text-3xl">Headquartered in Boston, we are a team of MIT alums and AI researchers with years of experience in deployable machine learning systems.</p>
               </div>
             </div>
           </div>
 
-          <div className="mx-auto container relative mt-16 z-10 -mb-10 lg:-mb-40 px-4">
+          <div className="mx-auto container relative mt-16 z-10 -mb-32 lg:-mb-40 px-4">
           <div className="flex flex-wrap items-center justify-center -mx-4">
-            <div className="w-full max-w-6xl bg-white px-8 py-6 lg:px-14 lg:pt-20 lg:pb-40 rounded-20 mx-6 md:mx-0">
+            <div className="w-full max-w-6xl bg-white px-8 py-6 lg:px-14 lg:pt-20 lg:pb-40 pb-20 rounded-20 mx-6 md:mx-0">
               <div className="flex flex-wrap justify-center items- -mx-4 lg:-mx-10">
                 {team.map((item, idx) => {
                   
@@ -221,7 +221,7 @@ export default function HomePage() {
             >
               <div className="container mx-auto pt-2 pb-2">
                 <div className="flex flex-wrap items-center justify-center text-center -mx-4">
-                  <div className="w-full max-w-3xl md:px-4 px-10">
+                  <div className="w-full max-w-3xl md:px-4 px-10 py-4">
                     <p className="text-xl font-bold text-white mb-8">
                       Looking to integrate synthetic data into your business workflow?
                     </p>
