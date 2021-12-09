@@ -1,9 +1,14 @@
-name: Update Website
+name: Build and Deploy SDV Blog
 
 on:
   push:
     branches:
-      main
+      - ghost-blog
+      - main
+  repository_dispatch:
+    branches:
+      - ghost-blog
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,3 +18,8 @@ jobs:
         with:
           access-token: ${{ secrets.BLOG_TOKEN }}
           deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
+
+        env: 
+          SITEURL: ${{ secrets.SITEURL }}
+          SITEPATH: ${{ secrets.SITEPATH }}

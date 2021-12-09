@@ -1,144 +1,231 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { Helmet } from "react-helmet";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import MoreArticles from "../components/MoreArticles";
-import ProgressBar from "react-scroll-progress-bar";
-
+import { Article } from "../components/common";
+import { MetaData } from "../components/common/meta";
+import AuthorPost from "../components/AuthorPost"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-const Post = ({ data }) => {
-  const post = data.ghostPost;
+import ProgressBar from "react-scroll-progress-bar";
 
-  return (
-    <div className="overflow-x-hidden">
-      <ProgressBar bgcolor="#000036" />
-      <Navbar />
-      <div className="md:pt-32 bg-sdv-green pb-28">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap -mx-6 justify-center items-center">
+import config from "../utils/siteConfig"
 
-            {post.feature_image ? (
-              <img src={post.feature_image} alt={post.title} className="block object-contain h-64 w-full" />
-            ) : <Img
-            fadeIn={true}
-            fixed={data.featuredImage.childImageSharp.fixed}
-            alt="The Synthetic Data Vault Blog"
-            className="mt-10"
-          />}
-            
-          </div>
-        </div>
-      </div>
+import Prism from "prismjs";
 
-      <div className="container mx-auto">
-        <div className="-mx-6 flex justify-center items-center -mt-20">
-          <article className=" max-w-5xl bg-white px-4 pt-10 lg:p-20">
-            <h1 className="leading-none text-5xl mb-6">{post.title}</h1>
-            <div className="flex flew-row mb-6">
-              <div className="relative z-10">
-                <div
-                  className="rounded-full bg-sdv-highlight absolute top-0 left-0"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                  }}
-                ></div>
-                <Img
-                  fadeIn={true}
-                  fixed={data.authorImage.childImageSharp.fixed}
-                  alt="Author"
-                  className="rounded-full ml-0.5 mt-0.5"
-                />
-              </div>
-              <div className="text-xs px-4 flex flex-col justify-center">
-                <p className="font-bold text-xs">{post.authors[0].name}</p>
-                <p className="font-light">{post.published_at}</p>
-              </div>
-             
-            </div>
+import "prismjs/components/prism-python";
+import "prismjs/themes/prism.css";
+// import "prismjs/themes/prism-okaidia.css";
 
-            <div className="text-sm leading-relaxed mb-4">
-              <p>
-              {post.excerpt}
-              </p>
-            </div>
-            
-            {/* <div>
-              {post.html}
-            </div>
-            <div>
-              {post.plaintext}
-            </div> */}
-            <div className="post">
-              <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            </div>
-          </article>
-          
-        </div>
-        <MoreArticles />
-      </div>
-      <Footer />
-    </div>
-  );
+/**
+ * Single post view (/:slug)
+ *
+ * This file renders a single post and loads all the content.
+ *
+ */
+
+const Post = ({ data, location }) => {
+    const post = data.ghostPost;
+
+    function addTargetBlank() {
+        const allPostLinks = Array.from(document.querySelectorAll(".post-body a[href^='https:']"));
+        allPostLinks.forEach(el => el.setAttribute('target', '_blank'));
+    }
+
+    useEffect( addTargetBlank, [])
+
+    useEffect(() => {
+        Prism.highlightAll();
+      }, []);
+
+    return (
+        <>
+            <MetaData data={data} location={location} type="article" />
+            <Helmet>
+                <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+                <meta http-equiv="Pragma" content="no-cache"/>
+                <meta http-equiv="Expires" content="0"/>
+                <style type="text/css">{`${post.codeinjection_styles}`}</style>
+            </Helmet>
+            <ProgressBar bgcolor="#000036" />
+            <Article isPost={true}>
+                
+                <div className="pt-20">
+                    <div className="w-full feature-image relative h-0 pb-pimg-xs sm:pb-pimg-sm lg:pb-pimg-lg">
+                        
+                            {post.feature_image ? (
+                                <img
+                                    src={post.feature_image}
+                                    alt={post.title}
+                                    className="absolute inset-0 md:w-full h-full object-cover object-center"
+                                    style={{
+                                        "background": 'linear-gradient(90deg, #03B0F2 1.57%, #01E0C9 100%)'
+                                    }}
+                                />
+                            ) : ''}
+                        
+                    </div>
+                </div>
+                <div className="-mt-10 md:-mt-20 relative">
+                
+                 <div className="container max-w-7xl h-full z-0 mx-auto relative">
+                 <section className="absolute left-0 pt-36 z-0 absolute hidden xl:block">
+                        
+                            <div className="flex flex-col mt-16 w-10 z-10 relative ">
+                                <div className="px-1 pb-3">
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener"
+                                        to={`https://twitter.com/intent/tweet/?text=${encodeURIComponent(post.title)}&url=https://sdv.dev${config.sitePath}${post.slug}&hashtags=syntheticdatavault`}
+                                        className="w-8 h-8 flex justify-center items-center text-white bg-sdv-dark inline-block rounded-full"
+                                    >
+                                        <FontAwesomeIcon
+                                            width="16"
+                                            icon={faTwitter}
+                                        />
+                                    </Link>
+                                </div>
+                                <div className="px-1 pb-3">
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener"
+                                        to={`https://www.linkedin.com/shareArticle?mini=true&url=https://sdv.dev${config.sitePath}${post.slug}`}
+                                        className="w-8 h-8 flex justify-center items-center text-white bg-sdv-dark inline-block rounded-full"
+                                    >
+                                        <FontAwesomeIcon
+                                            width="16"
+                                            icon={faLinkedin}
+                                        />
+                                    </Link>
+                                </div>
+                            </div>
+                        
+                    </section>
+                 </div>       
+                    
+                    <article className="container max-w-5xl bg-white px-6 pt-10 md:pt-20 md:px-10 lg:px-20 pb-0 relative">
+                        
+                        <h1 className="leading-none text-6xl lg:text-8xl mb-3">
+                            {post.title}
+                        </h1>
+
+                        <div className="block xl:hidden">
+                        <div className="flex flex-row">
+                                <div className="px-1 pb-3">
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener"
+                                        to={`https://twitter.com/intent/tweet/?text=${encodeURIComponent(post.title)}&url=https://sdv.dev${config.sitePath}${post.slug}&hashtags=syntheticdatavault`}
+                                        className="w-8 h-8 flex justify-center items-center text-white bg-sdv-dark inline-block rounded-full"
+                                    >
+                                        <FontAwesomeIcon
+                                            width="16"
+                                            icon={faTwitter}
+                                        />
+                                    </Link>
+                                </div>
+                                <div className="px-1 pb-3">
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener"
+                                        to={`https://www.linkedin.com/shareArticle?mini=true&url=https://sdv.dev${config.sitePath}${post.slug}`}
+                                        className="w-8 h-8 flex justify-center items-center text-white bg-sdv-dark inline-block rounded-full"
+                                    >
+                                        <FontAwesomeIcon
+                                            width="16"
+                                            icon={faLinkedin}
+                                        />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p className="font-light text-sm mb-6">
+                            {post.published_at_pretty}
+                        </p>
+
+                        <AuthorPost post={post} />
+                        
+                       
+                        <div className="post">
+                            <section className="post-body"
+                                dangerouslySetInnerHTML={{ __html: post.html }}
+                            />
+                            <div className="">
+                                <div className="flex flex-row items-center">
+                                <div className="pr-1 pb-3 font-light text-lg">Share: </div>
+                                        <div className="px-1 pb-3">
+                                            <Link
+                                                target="_blank"
+                                                rel="noopener"
+                                                to={`https://twitter.com/intent/tweet/?text=${encodeURIComponent(post.title)}&url=https://sdv.dev${config.sitePath}${post.slug}&hashtags=syntheticdatavault`}
+                                                className="w-8 h-8 flex justify-center items-center text-white bg-sdv-dark inline-block rounded-full"
+                                            >
+                                                <FontAwesomeIcon
+                                                    width="16"
+                                                    icon={faTwitter}
+                                                />
+                                            </Link>
+                                        </div>
+                                        <div className="px-1 pb-3">
+                                            <Link
+                                                target="_blank"
+                                                rel="noopener"
+                                                to={`https://www.linkedin.com/shareArticle?mini=true&url=https://sdv.dev${config.sitePath}${post.slug}`}
+                                                className="w-8 h-8 flex justify-center items-center text-white bg-sdv-dark inline-block rounded-full"
+                                            >
+                                                <FontAwesomeIcon
+                                                    width="16"
+                                                    icon={faLinkedin}
+                                                />
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                {post.primary_tag ? (
+                                    <div className="flex flex-grow -mx-6 font-light mb-8 mt-4 lg:mb-14">
+                                        <div className="px-6">
+                                            <Link
+                                                to={`/tag/${post.primary_tag.slug}`}
+                                                className="mb-2 border border-sdv-stroke rounded-full inline-block px-6 py-1 shadow-lg mr-4"
+                                            >
+                                                {post.primary_tag.name}
+                                            </Link>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
+                        </div>
+                    </article>
+                   
+                </div>
+            </Article>
+        </>
+    );
+};
+
+Post.propTypes = {
+    data: PropTypes.shape({
+        ghostPost: PropTypes.shape({
+            codeinjection_styles: PropTypes.object,
+            title: PropTypes.string.isRequired,
+            html: PropTypes.string.isRequired,
+            feature_image: PropTypes.string,
+        }).isRequired,
+    }).isRequired,
+    location: PropTypes.object.isRequired,
 };
 
 export default Post;
 
 export const postQuery = graphql`
-
-  query($slug: String!) {
-    featuredImage: file(relativePath: { eq: "featured-article.png" }) {
-      childImageSharp {
-        fixed(height: 170, width: 170) {
-          ...GatsbyImageSharpFixed_noBase64
+    query($slug: String!) {
+        ghostPost(slug: { eq: $slug }) {
+            ...GhostPostFields
         }
-      }
-      id
     }
-    authorImage: file(relativePath: { eq: "neha.jpg" }) {
-      childImageSharp {
-        fixed(height: 46, width: 46) {
-          ...GatsbyImageSharpFixed_noBase64
-        }
-      }
-      id
-    }
-    authorImage2: file(relativePath: { eq: "carles.jpg" }) {
-      childImageSharp {
-        fixed(height: 46, width: 46) {
-          ...GatsbyImageSharpFixed_noBase64
-        }
-      }
-      id
-    }
-    ghostPost(slug: { eq: $slug }) {
-      title
-      meta_description
-      meta_title
-      og_description
-      og_image
-      og_title
-      published_at(formatString: "MMMM DD, YYYY")
-      slug
-      twitter_description
-      twitter_image
-      twitter_title
-      updated_at(formatString: "MMMM DD, YYYY")
-      html
-      excerpt
-      feature_image
-      plaintext
-      url
-      authors {
-        bio
-        name
-        cover_image
-      }
-    }
-  }
 `;

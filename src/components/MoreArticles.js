@@ -1,7 +1,7 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
-import PostCard from "./PostCard";
+import { PostCard } from "../components/common";
 
 export default function MoreArticles() {
   return (<StaticQuery
@@ -16,12 +16,17 @@ export default function MoreArticles() {
               title
               slug
               published_at(formatString: "MMMM DD, YYYY")
+              published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
               authors {
                 bio
                 cover_image
                 name
                 profile_image
                 url
+              }
+              primary_author {
+                  name
+                  profile_image
               }
               meta_description
               meta_title
@@ -33,18 +38,19 @@ export default function MoreArticles() {
     `}
     render={(data) => {
       const posts = data.allGhostPost.edges;
-      const postMarkup = posts.map(({ node }) => (
-        // The tag below includes the markup for each post - components/common/PostCard.js
-        <PostCard key={node.id} post={node} />
-      ))
+      
       return (
         <section className="my-10">
           <div>
             <h3>More Articles</h3>
-            <div className="w-16 h-0.5 bg-sdv-green mt-6 mb-12"></div>
+            <div className="w-16 h-0.5 bg-sdv-highlight mt-6 mb-12"></div>
           </div>
           <div className="flex flex-wrap -mx-6">
-            {postMarkup}
+            
+            {posts.map(({ node }) => (
+
+              <PostCard key={node.id} post={node} />
+            ))}
           </div>
         </section>
       );

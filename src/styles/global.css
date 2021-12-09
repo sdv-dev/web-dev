@@ -9,34 +9,52 @@
   }
 
   h1 {
+    @apply text-8xl;
+    @apply leading-snug;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h2 {
+    @apply text-7xl;
+    @apply leading-none;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h3 {
     @apply text-6xl;
     @apply leading-snug;
     @apply font-bold;
+    @apply text-sdv-dark;
   }
-  h2 {
-    @apply text-4xl;
-    @apply leading-none;
+  h4 {
+    @apply text-5xl;
+    @apply leading-snug;
     @apply font-bold;
+    @apply text-sdv-dark;
   }
-  h3 {
+  h5 {
+    @apply text-4xl;
+    @apply leading-snug;
+    @apply font-bold;
+    @apply text-sdv-dark;
+  }
+  h6 {
     @apply text-3xl;
     @apply leading-snug;
     @apply font-bold;
+    @apply text-sdv-dark;
   }
-  h4 {
-    @apply text-2xl;
-    @apply leading-snug;
-    @apply font-bold;
+
+  p {
+    @apply leading-extra-relaxed
   }
-  h5 {
-    @apply text-lg;
-    @apply leading-snug;
-    @apply font-bold;
+
+  .link-wrap .read-more {
+    @apply text-sdv-dark;
   }
-  h6 {
-    @apply text-sm;
-    @apply leading-snug;
-    @apply font-bold;
+
+  .link-wrap:hover .read-more {
+    @apply text-sdv-secondary;
   }
 
   ul.dashed > li:before {
@@ -46,5 +64,13 @@
 
   a > svg {
     @apply inline-block;
+  }
+
+  pre[class*="language-"] {
+    @apply mb-6 !important;
+  }
+
+  code {
+    background: #f5f2f0;
   }
 }

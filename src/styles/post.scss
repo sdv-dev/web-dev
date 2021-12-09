@@ -1,3 +1,10 @@
+.link-wrap .read-more {
+  color: #000036;
+}
+
+.link-wrap:hover .read-more {
+  color: #03B0F2;
+}
 
 .post {
   h2,h3,h4,h5,h6 {
@@ -16,19 +23,19 @@
   }
 
   h2 {
-    margin: 48px 0;
+    margin: 48px 0 40px;
   }
   h3{
-    margin: 40px 0;
+    margin: 40px 0 32px;
   }
   h4{
-    margin: 32px 0;
+    margin: 32px 0 24px;
   }
   h5 {
-    margin: 24px 0;
+    margin: 24px 0 16px;
   }
   h6 {
-    margin: 16px 0;
+    margin: 16px 0 8px;
   }
 
   ol,ul {
@@ -40,13 +47,29 @@
   ul {
     li {
       list-style: disc;
+      a {
+        border-bottom: 1px dotted #03AFF1;
+        color: #03AFF1;
+        &:hover {
+          border-bottom: 1px solid #03AFF1;
+        }
+      }
     }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
   }
 
 
   p {
     margin-bottom: 22px;
     line-height: 1.75;
+    letter-spacing: 0.5px;
 
     a {
       border-bottom: 1px dotted #03AFF1;
@@ -57,9 +80,19 @@
     }
   }
 
+  
+  
   figcaption {
     text-align: center;
     font-style: italic;
+
+    a {
+      border-bottom: 1px dotted #03AFF1;
+      color: #03AFF1;
+      &:hover {
+        border-bottom: 1px solid #03AFF1;
+      }
+    }
   }
 
   blockquote {
@@ -72,6 +105,9 @@
 
   .kg-card-hascaption {
     margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .kg-embed-card {
