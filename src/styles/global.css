@@ -68,6 +68,7 @@
 
   pre[class*="language-"] {
     @apply mb-6 !important;
+    font-size: 13px !important;
   }
 
   code {
