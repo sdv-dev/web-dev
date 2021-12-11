@@ -65,19 +65,20 @@
   a > svg {
     @apply inline-block;
   }
+}
 
-  code[class*=language-], pre[class*=language-] {
-    font-size: 13px !important;
-  }
 
-  pre {
-    background: #f5f2f0 !important;
-    @apply mb-6 p-4 !important;
-  }
+code[class*=language-], pre[class*=language-] {
+  font-size: 13px !important;
+}
 
-  code {
-    background: #f5f2f0 !important;
-    font-size: 13px;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
+pre {
+  background: #f5f2f0 !important;
+  @apply mb-6 p-4 !important;
+}
+
+code {
+  background: #f5f2f0 !important;
+  font-size: 13px;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
