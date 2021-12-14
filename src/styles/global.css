@@ -79,6 +79,7 @@ pre {
 }
 
 code {
+  @apply px-1 py-px !important rounded-sm;
   background: #272822 !important;
   font-size: 13px;
   color: #f8f8f2;
