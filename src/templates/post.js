@@ -17,8 +17,8 @@ import config from "../utils/siteConfig"
 import Prism from "prismjs";
 
 import "prismjs/components/prism-python";
-import "prismjs/themes/prism.css";
-// import "prismjs/themes/prism-okaidia.css";
+// import "prismjs/themes/prism.css";
+import "prismjs/themes/prism-okaidia.css";
 
 /**
  * Single post view (/:slug)
