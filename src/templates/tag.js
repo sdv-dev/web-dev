@@ -24,19 +24,17 @@ const Tag = ({ data, location, pageContext }) => {
             />
             <Article hasMoreArticles={false}>
             <div className=" pt-20">
-                <div className="bg-sdv-highlight w-full feature-image relative h-40" style={{background: 'linear-gradient(90deg, #03B0F2 1.57%, #01E0C9 100%)'}}>
-                    <div className="absolute inset-0 flex justify-center items-center">
-                        <div className="container mx-auto">
-                            <div className="flex flex-wrap -mx-6 justify-center items-center">
-                            <div className="w-full lg:w-6/12 px-6 md:mt-0 text-white text-center">
+                <div className="bg-sdv-highlight w-full feature-image relative py-6 lg:py-10" style={{background: 'linear-gradient(90deg, #03B0F2 1.57%, #01E0C9 100%)'}}>
+                    <div className="container mx-auto">
+                        <div className="flex flex-wrap -mx-6 justify-center items-center">
+                            <div className="w-full lg:w-8/12 px-6 md:mt-0 text-white text-center">
                                 <h1 className="leading-none text-white text-6xl lg:text-8xl ">
                                     {tag.name}
                                 </h1>
-                                {tag.description ? <p className="text-2xl">
+                                {tag.description ? <p className="text-xl mt-3">
                                     {tag.description}
                                 </p> : null }
                 
-                            </div>
                             </div>
                         </div>
                     </div>
