@@ -24,7 +24,7 @@ const Tag = ({ data, location, pageContext }) => {
             />
             <Article hasMoreArticles={false}>
             <div className=" pt-20">
-                <div className="bg-sdv-highlight w-full feature-image relative py-6 lg:py-10" style={{background: 'linear-gradient(90deg, #03B0F2 1.57%, #01E0C9 100%)'}}>
+                <div className="bg-sdv-highlight w-full feature-image relative py-6" style={{background: 'linear-gradient(90deg, #03B0F2 1.57%, #01E0C9 100%)'}}>
                     <div className="container mx-auto">
                         <div className="flex flex-wrap -mx-6 justify-center items-center">
                             <div className="w-full lg:w-8/12 px-6 md:mt-0 text-white text-center">
