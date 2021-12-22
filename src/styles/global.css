@@ -78,7 +78,7 @@ pre {
   @apply mb-6 p-4 !important;
 }
 
-p code {
+p code, li code {
   @apply px-1 py-px !important rounded-sm;
   background: #f8f8f2 !important;
   color: #272822;
