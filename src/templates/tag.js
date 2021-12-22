@@ -31,7 +31,7 @@ const Tag = ({ data, location, pageContext }) => {
                                 <h1 className="leading-none text-white text-6xl lg:text-8xl ">
                                     {tag.name}
                                 </h1>
-                                {tag.description ? <p className="text-xl mt-3">
+                                {tag.description ? <p className="text-xl mt-3 leading-snug">
                                     {tag.description}
                                 </p> : null }
                 
