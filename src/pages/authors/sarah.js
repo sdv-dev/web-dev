@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
-import { AuthorPostCard, Pagination, AuthorLayout } from '../components/common'
-import { MetaData } from '../components/common/meta'
+import { Helmet } from "react-helmet";
+import { AuthorPostCard, Pagination, AuthorLayout } from '../../components/common'
+import { MetaData } from '../../components/common/meta'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
-import team from '../utils/team';
+import team from '../../utils/team';
+import guests from '../../utils/guests';
 
 const SectionTitle = ({ children }) => {
     return (
@@ -21,30 +22,26 @@ const SectionTitle = ({ children }) => {
     )
 }
 
-const Author = ({ data, location, pageContext }) => {
-    const author = data.ghostAuthor
-    const posts = data.allGhostPost.edges
-    const twitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
-    const facebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
+const SarahPage = ({ data, location, pageContext }) => {
+  
+
+    const author = guests.filter( i => i.slug == 'sarah')[0];
 
     const contributorsnames = team.map( i => i.name );
-
     const isContributor = contributorsnames.indexOf(author.name) >= 0 ? true : false;
-       
 
     return (
         <>
-            <MetaData
-                data={data}
-                location={location}
-                type="profile"
-            />
+            <Helmet>
+                <title>{author.name} on The Synthetic Data Vault Blog</title>
+                <meta name="description" content={`Meet ${author.name}} on The Synthetic Data Vault Blog`} />
+            </Helmet>
             <AuthorLayout>
                 <div className="container pt-20">
                     <header className="author-header pt-24">
                         <div className="flex flex-wrap -mx-4">
                             <div className="w-56 px-4">
-                                {author.profile_image && <img src={author.profile_image} alt={author.name} />}
+                                {author.image && <img src={author.image} alt={author.name} />}
                             </div>
                             <div className="w-full lg:w-auto px-4">
                                 <h1 className="">{author.name}</h1>
@@ -67,17 +64,17 @@ const Author = ({ data, location, pageContext }) => {
                                             </a>
                                         </div>
                                     )}
-                                    { twitterUrl && (
+                                    { author.twitterUrl && (
                                         <div className="px-1">
                                             <a
-                                                href={twitterUrl} target="_blank" rel="noopener noreferrer"
+                                                href={author.twitterUrl} target="_blank" rel="noopener noreferrer"
                                                 className="w-8 h-8 flex justify-center items-center bg-sdv-dark inline-block rounded-full hover:bg-sdv-secondary text-sdv-offwhite">
                                                 <FontAwesomeIcon width="16" icon={faTwitter} />
                                             </a>
                                         </div>
                                     )}
-                                    { facebookUrl &&(<div className="px-1">
-                                        <a href={facebookUrl} target="_blank" rel="noopener noreferrer"
+                                    { author.facebookUrl &&(<div className="px-1">
+                                        <a href={author.facebookUrl} target="_blank" rel="noopener noreferrer"
                                             className="w-8 h-8 flex justify-center items-center bg-sdv-dark inline-block rounded-full hover:bg-sdv-secondary text-sdv-offwhite">
                                             <FontAwesomeIcon width="16" icon={faFacebook} />
                                         </a>
@@ -112,24 +109,12 @@ const Author = ({ data, location, pageContext }) => {
                             Recent posts
                         </SectionTitle>
 
-                        { Array.from(posts).length > 0 ? (
-                            <div className='flex flex-wrap -mx-3'>
-                            {posts.map(({ node }) => (
-                                // The tag below includes the markup for each post - components/common/PostCard.js
-                                <AuthorPostCard key={node.id} post={node} />
-                            ))}
+                        <div>
+                            {author.name} 
+                            {" "}
+                            has not published any articles yet.
                         </div>
-                        ) : (
-                            <div>
-                                {author.name} 
-                                {" "}
-                                has not published any articles yet.
-                            </div>
-                        )}
 
-                        
-
-                        {/* <Pagination pageContext={pageContext} /> */}
                     </section>
 
                     <section className='mt-24'>
@@ -159,7 +144,7 @@ const Author = ({ data, location, pageContext }) => {
     )
 }
 
-Author.propTypes = {
+SarahPage.propTypes = {
     data: PropTypes.shape({
         ghostAuthor: PropTypes.shape({
             name: PropTypes.string.isRequired,
@@ -179,24 +164,29 @@ Author.propTypes = {
     pageContext: PropTypes.object,
 }
 
-export default Author
+export default SarahPage
 
 export const pageQuery = graphql`
-    query GhostAuthorQuery($slug: String!, $limit: Int!, $skip: Int!) {
-        ghostAuthor(slug: { eq: $slug }) {
-            ...GhostAuthorFields
+    query {
+      allGhostAuthor {
+        edges {
+          node {
+            bio
+            cover_image
+            facebook
+            ghostId
+            meta_description
+            meta_title
+            name
+            postCount
+            slug
+            twitter
+            url
+            website
+            profile_image
+            location
+          }
         }
-        allGhostPost(
-            sort: { order: DESC, fields: [published_at] },
-            filter: {authors: {elemMatch: {slug: {eq: $slug}}}},
-            limit: $limit,
-            skip: $skip
-        ) {
-            edges {
-                node {
-                ...GhostPostFields
-                }
-            }
-        }
+      }
     }
 `

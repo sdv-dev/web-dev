@@ -1,17 +1,12 @@
 import React from "react";
 
-export default function AuthorCard({ post }) {
+export default function AuthorCardSm({ post }) {
   const { authors } = post;
-
-  // const primaryAuthorUrl = post.primary_author.url;
-  // const primaryAuthorSlug = primaryAuthorUrl.slice(10, 10)
 
   if (typeof authors[1] === "object") {
     return (
-      <section className="flex flew-row mb-6">
-        <a className="relative mr-3 inline-block hover:opacity-90" 
-          href={`/authors/${authors[0].slug}`}
-          style={{
+      <section className="flex flew-row mb-4">
+        <div className="relative mr-2" style={{
               width: "49px",
               height: "49px",
             }}>
@@ -48,11 +43,9 @@ export default function AuthorCard({ post }) {
               )}
             </div>
           </div>
-        </a>
+        </div>
 
-        <a className="relative inline-block hover:opacity-90" 
-          href={`/authors/${authors[1].slug}`}
-        style={{
+        <div className="relative" style={{
               width: "49px",
               height: "49px",
             }}>
@@ -89,19 +82,11 @@ export default function AuthorCard({ post }) {
               )}
             </div>
           </div>
-        </a>
+        </div>
 
-        <div className="pl-4 flex flex-col justify-center">
-          <p className="text-sm">
-            <strong className="font-bold">
-              <a className="hover:text-sdv-secondary" href={`/authors/${authors[0].slug}`}>{authors[0].name}</a>
-            </strong> 
-            {" "}
-            and 
-            {" "}
-            <strong className="font-bold">
-              <a className="hover:text-sdv-secondary" href={`/authors/${authors[1].slug}`}>{authors[1].name}</a>
-            </strong>
+        <div className="pl-3 flex flex-col justify-center">
+          <p className="text-xs">
+            <strong className="font-bold">{authors[0].name}</strong> and <strong className="font-bold">{authors[1].name}</strong>
           </p>
           <p className="font-light text-xs">{post.published_at_pretty}</p>
         </div>
@@ -110,11 +95,8 @@ export default function AuthorCard({ post }) {
   }
 
   return (
-    <section className="flex flew-row mb-6">
-      <a 
-        href={`/authors/${post.primary_author.slug}`}
-        className="relative inline-block hover:opacity-90"
-      >
+    <section className="flex flew-row mb-4">
+      <div className="relative">
         <div
           className="rounded-full bg-sdv-highlight top-0 left-0"
           style={{
@@ -148,12 +130,9 @@ export default function AuthorCard({ post }) {
             )}
           </div>
         </div>
-      </a>
-      <div className="pl-4 flex flex-col justify-center">
-        <p className="font-bold text-sm">
-          <a className="hover:text-sdv-secondary" href={`/authors/${post.primary_author.slug}`}>{post.primary_author.name}</a>
-        </p>
-        {/* {primaryAuthorUrl} */}
+      </div>
+      <div className="pl-3 flex flex-col justify-center">
+        <p className="font-bold text-xs">{post.primary_author.name}</p>
         <p className="font-light text-xs">{post.published_at_pretty}</p>
       </div>
     </section>

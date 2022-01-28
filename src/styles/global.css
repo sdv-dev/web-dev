@@ -91,3 +91,7 @@ pre code {
   color: #f8f8f2;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
+
+.bg-grad-1 {
+  background: linear-gradient(90deg, #03B0F2 1.57%, #01E0C9 100%);
+}

@@ -74,6 +74,9 @@ module.exports = {
           offwhite: 'rgba(250, 250, 250, .1)',
         }
       },
+      height: {
+        0.75: '3px'
+      },
       letterSpacing: {
         body: '0.0125rem'
       },
