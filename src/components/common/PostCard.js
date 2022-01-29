@@ -11,13 +11,13 @@ const PostCard = ({ post }) => {
     const url = `/${post.slug}/`
 
     return (
-        <div  className="w-full md:w-6/12 lg:w-4/12 px-6 mb-14 hover:opacity-90" key={`blog-article-${post.id}`}>
+        <div  className="w-full md:w-6/12 lg:w-4/12 px-6 mb-14" key={`blog-article-${post.id}`}>
             <Link to={url} className='link-wrap'>
                 <header
                     style={{
                     boxShadow: "0px 15px 35px rgba(0, 0, 0, 0.05)",
                     }}
-                    className="w-full mb-8 rounded-tl-10 rounded-bl-10 rounded-tr-10 rounded-br-50 overflow-hidden border border-stroke flex justify-center bg-sdv-offwhite"
+                    className="hover:opacity-80 w-full mb-8 rounded-tl-10 rounded-bl-10 rounded-tr-10 rounded-br-50 overflow-hidden border border-stroke flex justify-center bg-sdv-offwhite"
                 >
                     <div className="w-full feature-image relative h-0 pb-cimg-xs">
                         <img src={post.feature_image} alt={post.title} className="absolute inset-0 md:w-full h-full object-cover object-center" />
@@ -26,7 +26,7 @@ const PostCard = ({ post }) => {
             </Link>
             <AuthorCard post={post} />
 
-            <Link to={url} className='link-wrap'>
+            <Link to={url} className='link-wrap hover:opacity-80 block'>
                 <h3 className="text-sdv-heading mb-4 text-2xl leading-none">
                 {post.title}
                 </h3>

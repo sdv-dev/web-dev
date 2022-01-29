@@ -3,9 +3,6 @@ import React from "react";
 export default function AuthorCard({ post }) {
   const { authors } = post;
 
-  // const primaryAuthorUrl = post.primary_author.url;
-  // const primaryAuthorSlug = primaryAuthorUrl.slice(10, 10)
-
   if (typeof authors[1] === "object") {
     return (
       <section className="flex flew-row mb-6">
@@ -153,7 +150,6 @@ export default function AuthorCard({ post }) {
         <p className="font-bold text-sm">
           <a className="hover:text-sdv-secondary" href={`/authors/${post.primary_author.slug}`}>{post.primary_author.name}</a>
         </p>
-        {/* {primaryAuthorUrl} */}
         <p className="font-light text-xs">{post.published_at_pretty}</p>
       </div>
     </section>

@@ -23,10 +23,17 @@ export default function MoreArticles() {
                 name
                 profile_image
                 url
+                slug
               }
               primary_author {
-                  name
-                  profile_image
+                name
+                slug
+                bio
+                # email
+                profile_image
+                twitter
+                facebook
+                website
               }
               meta_description
               meta_title
