@@ -65,7 +65,9 @@ export default function AuthorPost({post}) {
     }
 
   return (
-    <section className="flex flew-row mb-6">
+    <a 
+        href={`${config.sitePath}/authors/${post.primary_author.slug}`}
+        className="flex flew-row mb-6 hover:text-sdv-secondary">
       <div className="relative">
           <div
               className="rounded-full bg-sdv-highlight top-0 left-0"
@@ -105,10 +107,10 @@ export default function AuthorPost({post}) {
           </div>
       </div>
       <div className="text-xs px-4 flex flex-col justify-center">
-          <p className="text-sm">
-            <strong className="font-bold">{post.primary_author.name}</strong>
+          <p className="text-sm font-bold">
+            {post.primary_author.name}
           </p>
       </div>
-  </section>
+  </a>
   )
 }
