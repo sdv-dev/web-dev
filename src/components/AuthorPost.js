@@ -1,5 +1,7 @@
 import React from 'react'
 
+import config from '../utils/siteConfig'
+
 export default function AuthorPost({post}) {
 
     const {authors} = post
@@ -7,10 +9,13 @@ export default function AuthorPost({post}) {
     if (typeof authors[1] === "object") {
         return (
             <div className="flex flex-start">
-                {post.authors.map((item, idx) => {
+                {post.authors.map((author, idx) => {
                     return (
                         <section className="flex flew-row mb-6 mr-4">
-                            <div className="relative">
+                            <a 
+                                href={`${config.sitePath}/authors/${author.slug}`}
+                                className="relative inline-block hover:opacity-80"
+                            >
                                 <div
                                     className="rounded-full bg-sdv-highlight top-0 left-0"
                                     style={{
@@ -25,15 +30,15 @@ export default function AuthorPost({post}) {
                                             height: "46px",
                                         }}
                                     >
-                                        {item.profile_image ? (
+                                        {author.profile_image ? (
                                             <img
                                                 width={46}
                                                 height={46}
                                                 className="block rounded-full relative z-10 object-cover h-full"
                                                 src={
-                                                    item.profile_image
+                                                    author.profile_image
                                                 }
-                                                alt={item.name}
+                                                alt={author.name}
                                             />
                                         ) : (
                                             <img
@@ -41,15 +46,15 @@ export default function AuthorPost({post}) {
                                                 height={46}
                                                 className="block rounded-full relative z-10 object-cover h-full"
                                                 src="/blog/images/icons/avatar.svg"
-                                                alt={item.name}
+                                                alt={author.name}
                                             />
                                         )}
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                             <div className="text-xs px-4 flex flex-col justify-center">
-                                <p className="text-sm">
-                                    <strong className="font-bold ">{item.name}</strong>
+                                <p className="text-sm font-bold">
+                                    <a className="hover:text-sdv-secondary" href={`${config.sitePath}/authors/${author.slug}`}>{author.name}</a>
                                 </p>
                             </div>
                         </section>

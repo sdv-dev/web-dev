@@ -10,6 +10,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 import team from '../utils/team';
 import guests from '../utils/guests';
+import config from '../utils/siteConfig';
 
 const SectionTitle = ({ children }) => {
     return (
@@ -60,7 +61,7 @@ const Authors = ({ data, location, pageContext }) => {
                     <div className="flex flex-wrap justify-start items- -mx-4 lg:-mx-10">
                       {authors.map((author, idx) => {
                         return (
-                          <a href={`/authors/${author.slug}`} 
+                          <a href={`${config.sitePath}/authors/${author.slug}`} 
                             className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap"
                           >
                             <div className="text-center text-sdv-dark">
@@ -81,7 +82,7 @@ const Authors = ({ data, location, pageContext }) => {
                       
                       {nonGhostContributors.map((author, idx) => {
                         return (
-                          <a href={`/authors/${author.slug}`} 
+                          <a href={`${config.sitePath}/authors/${author.slug}`} 
                             className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap"
                           >
                             <div className="text-center text-sdv-dark">
@@ -89,7 +90,7 @@ const Authors = ({ data, location, pageContext }) => {
                                 className="h-full block transition-shadow"
                               >
                                 <div className='w-40  mx-auto relative mb-4'>
-                                  {author.image && <img className="w-full h-auto block mx-auto rounded-full relative z-10 mb-6" src={author.image} alt={author.name} />}
+                                  {author.image && <img className="w-full h-auto block mx-auto rounded-full relative z-10 mb-6" src={`${config.sitePath}${author.image}`} alt={author.name} />}
                                 </div>
                                 
                                   <p className='read-more font-bold text'>{author.name}</p>
@@ -106,7 +107,7 @@ const Authors = ({ data, location, pageContext }) => {
 
                   <section className='mt-24'>
                       <SectionTitle>
-                      Guest Authors
+                        Guest Authors
                       </SectionTitle>
 
                       <div className="flex flex-wrap justify-start items- -mx-4 lg:-mx-10">
@@ -114,7 +115,7 @@ const Authors = ({ data, location, pageContext }) => {
                       
                       {guests.map((author, idx) => {
                         return (
-                          <a href={`/authors/${author.slug}`} 
+                          <a href={`${config.sitePath}/authors/${author.slug}`} 
                             className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap"
                           >
                             <div className="text-center text-sdv-dark">
@@ -122,7 +123,7 @@ const Authors = ({ data, location, pageContext }) => {
                                 className="h-full block transition-shadow"
                               >
                                 <div className='w-40  mx-auto relative mb-4'>
-                                  {author.image && <img className="w-full h-auto block mx-auto rounded-full relative z-10 mb-6" src={author.image} alt={author.name} />}
+                                  {author.image && <img className="w-full h-auto block mx-auto rounded-full relative z-10 mb-6" src={`${config.sitePath}${author.image}`} alt={author.name} />}
                                 </div>
                                 
                                   <p className='read-more font-bold text'>{author.name}</p>

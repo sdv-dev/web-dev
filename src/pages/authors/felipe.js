@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
+import config from "../../utils/siteConfig";
 import team from '../../utils/team';
 import guests from '../../utils/guests';
 
@@ -126,7 +127,7 @@ const FelipePage = ({ data, location, pageContext }) => {
                         </p>
                         <p className=''>
                             <a 
-                                href='/authors/'
+                                href={`${config.sitePath}/authors/`}
                                 className='hover:opacity-80 bg-grad-1 px-3 py-1.5 text-white inline-block rounded font-semibold'>
                                 Meet the authors
                             </a>

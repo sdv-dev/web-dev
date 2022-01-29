@@ -1,5 +1,7 @@
 import React from "react";
 
+import config from "../utils/siteConfig";
+
 export default function AuthorCard({ post }) {
   const { authors } = post;
 
@@ -7,7 +9,7 @@ export default function AuthorCard({ post }) {
     return (
       <section className="flex flew-row mb-6">
         <a className="relative mr-3 inline-block hover:opacity-90" 
-          href={`/authors/${authors[0].slug}`}
+          href={`${config.sitePath}/authors/${authors[0].slug}`}
           style={{
               width: "49px",
               height: "49px",
@@ -47,8 +49,8 @@ export default function AuthorCard({ post }) {
           </div>
         </a>
 
-        <a className="relative inline-block hover:opacity-90" 
-          href={`/authors/${authors[1].slug}`}
+        <a className="relative inline-block hover:opacity-80" 
+          href={`${config.sitePath}/authors/${authors[1].slug}`}
         style={{
               width: "49px",
               height: "49px",
@@ -91,13 +93,13 @@ export default function AuthorCard({ post }) {
         <div className="pl-4 flex flex-col justify-center">
           <p className="text-sm">
             <strong className="font-bold">
-              <a className="hover:text-sdv-secondary" href={`/authors/${authors[0].slug}`}>{authors[0].name}</a>
+              <a className="hover:text-sdv-secondary" href={`${config.sitePath}/authors/${authors[0].slug}`}>{authors[0].name}</a>
             </strong> 
             {" "}
             and 
             {" "}
             <strong className="font-bold">
-              <a className="hover:text-sdv-secondary" href={`/authors/${authors[1].slug}`}>{authors[1].name}</a>
+              <a className="hover:text-sdv-secondary" href={`${config.sitePath}/authors/${authors[1].slug}`}>{authors[1].name}</a>
             </strong>
           </p>
           <p className="font-light text-xs">{post.published_at_pretty}</p>
@@ -109,8 +111,8 @@ export default function AuthorCard({ post }) {
   return (
     <section className="flex flew-row mb-6">
       <a 
-        href={`/authors/${post.primary_author.slug}`}
-        className="relative inline-block hover:opacity-90"
+        href={`${config.sitePath}/authors/${post.primary_author.slug}`}
+        className="relative inline-block hover:opacity-80"
       >
         <div
           className="rounded-full bg-sdv-highlight top-0 left-0"
@@ -148,7 +150,7 @@ export default function AuthorCard({ post }) {
       </a>
       <div className="pl-4 flex flex-col justify-center">
         <p className="font-bold text-sm">
-          <a className="hover:text-sdv-secondary" href={`/authors/${post.primary_author.slug}`}>{post.primary_author.name}</a>
+          <a className="hover:text-sdv-secondary" href={`${config.sitePath}/authors/${post.primary_author.slug}`}>{post.primary_author.name}</a>
         </p>
         <p className="font-light text-xs">{post.published_at_pretty}</p>
       </div>

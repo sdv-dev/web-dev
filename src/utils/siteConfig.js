@@ -2,7 +2,9 @@ module.exports = {
     // siteUrl: `http://localhost:8000`, // Site domain. Do not include a trailing slash!
     siteUrl: `https://sdv.dev`, // Site domain. Do not include a trailing slash!
 
-    sitePath: `/blog/`,
+    // sitePath: `/blog/`,
+    sitePath: `/web-dev`,
+    // sitePath: ``,
     
     postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
