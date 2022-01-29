@@ -68,7 +68,7 @@ export default function AuthorPost({post}) {
     <a 
         href={`${config.sitePath}/authors/${post.primary_author.slug}`}
         className="flex flew-row mb-6 hover:text-sdv-secondary">
-      <div className="relative">
+      <div className="relative hover:opacity-80">
           <div
               className="rounded-full bg-sdv-highlight top-0 left-0"
               style={{
