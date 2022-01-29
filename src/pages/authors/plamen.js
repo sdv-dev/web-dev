@@ -42,7 +42,7 @@ const PlamenPage = ({ data, location, pageContext }) => {
                     <header className="author-header pt-24">
                         <div className="flex flex-wrap -mx-4">
                             <div className="w-56 px-4">
-                                {author.image && <img src={author.image} alt={author.name} />}
+                                {author.image && <img src={`${config.sitePath}${author.image}`} alt={author.name} />}
                             </div>
                             <div className="w-full lg:w-auto px-4">
                                 <h1 className="">{author.name}</h1>
