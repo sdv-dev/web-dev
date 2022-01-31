@@ -52,13 +52,13 @@ const Authors = ({ data, location, pageContext }) => {
                 <meta name="description" content="Meet and Discover The Synthetic Data Vault Blog Authors, Contributors and Guests" />
             </Helmet>
             <AuthorLayout>
-                <div className="container pt-20">
+                <div className="container pt-20 text-center md:text-left">
                    
                   <section className="mt-24">
                     <SectionTitle>
                       Core Contributors
                     </SectionTitle>
-                    <div className="flex flex-wrap justify-start items- -mx-4 lg:-mx-10">
+                    <div className="flex flex-wrap md:justify-start justify-center -mx-4 lg:-mx-10">
                       {authors.map((author, idx) => {
                         return (
                           <a href={`${config.sitePath}/authors/${author.slug}`} 
@@ -110,7 +110,7 @@ const Authors = ({ data, location, pageContext }) => {
                         Guest Authors
                       </SectionTitle>
 
-                      <div className="flex flex-wrap justify-start items- -mx-4 lg:-mx-10">
+                      <div className="flex flex-wrap md:justify-start justify-center -mx-4 lg:-mx-10">
                       
                       
                       {guests.map((author, idx) => {
