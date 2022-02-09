@@ -52,9 +52,15 @@ const Author = ({ data, location, pageContext }) => {
                                 <p className="text-lg mb-3">{author.location}</p>
                                 
                                 <p>
-                                    <span className='bg-grad-1 px-3 py-1 text-white inline-block rounded font-semibold'>
-                                        { isContributor ? `Core Contributor` : `Guest Author` }
-                                    </span>
+                                    { isContributor ? (
+                                        <a href={`${config.sitePath}/authors/#core-contributors`} className='hover:opacity-80 bg-grad-1 px-3 py-1 text-white inline-block rounded font-semibold'>
+                                        Core Contributor
+                                        </a>) : (
+                                            <a href={`${config.sitePath}/authors/#guest-authors`} className='hover:opacity-80 bg-grad-1 px-3 py-1 text-white inline-block rounded font-semibold'>
+                                                Guest Author
+                                            </a>
+                                        ) 
+                                    }
                                 </p>
 
                                 <div className="flex flex-row -mx-1 mt-4">
@@ -101,7 +107,7 @@ const Author = ({ data, location, pageContext }) => {
                                 <SectionTitle>
                                     Biography
                                 </SectionTitle>
-                                <p className='text-lg'>{author.bio}</p>
+                                <p className='text-lg max-w-4xl'>{author.bio}</p>
                             </div>
                         )}
                         
@@ -110,7 +116,7 @@ const Author = ({ data, location, pageContext }) => {
                         {/* {JSON.stringify(author)} */}
 
                         <SectionTitle>
-                            Recent posts
+                            Recent Posts
                         </SectionTitle>
 
                         { Array.from(posts).length > 0 ? (

@@ -49,7 +49,7 @@ const Navigation = ({ data, navClass, children }) => {
     });
     
     useEffect(() => {
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
     }, [])
 
     const useOutsideClick = (ref, callback) => {

@@ -11,12 +11,12 @@ const AuthorPostCard = ({ post }) => {
     const url = `/${post.slug}/`
 
     return (
-        <Link to={url} className="hover:bg-white w-full sm:w-1/2 md:w-4/12 lg:w-3/12 px-3 mb-6 link-wrap bg-sdv-offwhite py-3" key={`blog-article-${post.id}`}>
+        <Link to={url} className="w-full sm:w-1/2 md:w-4/12 lg:w-3/12 px-3 mb-6 link-wrap py-3" key={`blog-article-${post.id}`}>
             <header
                 style={{
                 boxShadow: "0px 15px 35px rgba(0, 0, 0, 0.05)",
                 }}
-                className="w-full mb-6 rounded-tl-10 rounded-bl-10 rounded-tr-10 rounded-br-50 overflow-hidden border border-stroke flex justify-center bg-sdv-offwhite"
+                className="w-full mb-6 rounded-tl-10 rounded-bl-10 rounded-tr-10 rounded-br-50 overflow-hidden border border-stroke flex justify-center"
             >
                 <div className="w-full feature-image relative h-0 pb-cimg-xs">
                     <img src={post.feature_image} alt={post.title} className="absolute inset-0 md:w-full h-full object-cover object-center" />

@@ -54,7 +54,7 @@ const Authors = ({ data, location, pageContext }) => {
             <AuthorLayout>
                 <div className="container pt-20 text-center md:text-left">
                    
-                  <section className="mt-24">
+                  <section className="pt-24" id="core-contributors">
                     <SectionTitle>
                       Core Contributors
                     </SectionTitle>
@@ -105,7 +105,7 @@ const Authors = ({ data, location, pageContext }) => {
 
                   </section>
 
-                  <section className='mt-24'>
+                  <section className='pt-24' id="guest-authors">
                       <SectionTitle>
                         Guest Authors
                       </SectionTitle>
