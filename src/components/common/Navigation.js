@@ -49,7 +49,9 @@ const Navigation = ({ data, navClass, children }) => {
     });
     
     useEffect(() => {
-        // window.scrollTo(0, 0)
+        if (window.location.hash === "#core-contributors" && window.location.hash !== "#guest-authors" ) {
+            window.scrollTo(0, 0);
+        }
     }, [])
 
     const useOutsideClick = (ref, callback) => {
