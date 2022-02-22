@@ -79,11 +79,13 @@ const Authors = ({ data, location, pageContext }) => {
                           </a>
                         );
                       })}
+
+                      
                       
                       {nonGhostContributors.map((author, idx) => {
                         return (
                           <a href={`${config.sitePath}/authors/${author.slug}`} 
-                            className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap"
+                            className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap hidden"
                           >
                             <div className="text-center text-sdv-dark">
                               <div
@@ -105,7 +107,7 @@ const Authors = ({ data, location, pageContext }) => {
 
                   </section>
 
-                  <section className='pt-24' id="guest-authors">
+                  <section className='pt-24 hidden' id="guest-authors">
                       <SectionTitle>
                         Guest Authors
                       </SectionTitle>
@@ -137,10 +139,12 @@ const Authors = ({ data, location, pageContext }) => {
                     </div>
 
                       
-                      <p className='mt-20 text-lg max-w-4xl'>
-                          Are you using the SDV to solve your business needs? Become a guest author for our blog! Contact us at <a className='text-sdv-highlight hover:underline' href="mailto:info@sdv.dev">info@sdv.dev</a> for more information.
-                      </p>
+                     
                   </section>
+
+                  <p className='mt-20 text-lg max-w-4xl'>
+                    Are you using the SDV to solve your business needs? Become a guest author for our blog! Contact us at <a className='text-sdv-highlight hover:underline' href="mailto:info@sdv.dev">info@sdv.dev</a> for more information.
+                  </p>
 
                     
                 </div>
