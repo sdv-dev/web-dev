@@ -59,7 +59,7 @@ const Authors = ({ data, location, pageContext }) => {
                       Core Contributors
                     </SectionTitle>
                     <div className="flex flex-wrap md:justify-start justify-center -mx-4 lg:-mx-10">
-                      {authors.map((author, idx) => {
+                      {authors.sort((a, b) => ( a.name.split(' ')[1] > b.name.split(' ')[1]) ? 1 : ((b.name.split(' ')[1] >  a.name.split(' ')[1]) ? -1 : 0)).map((author, idx) => {
                         return (
                           <a href={`${config.sitePath}/authors/${author.slug}`} 
                             className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap"
