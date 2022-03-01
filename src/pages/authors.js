@@ -26,27 +26,28 @@ const SectionTitle = ({ children }) => {
 const Authors = ({ data, location, pageContext }) => {
     const authors = data.allGhostAuthor.edges.map( i => i.node).reverse();
 
-    const ghostAuthorsSlugs = authors.map(i => i.slug);
+    const ghostContributorsSlugs = team.map(i => i.slug);
+    const ghostGuestSlugs = guests.map(i => i.slug);
 
+    const markedAuthors = authors.map(i => {
+      if (ghostContributorsSlugs.indexOf(i.slug) >= 0) {
+        return {...i, isContributor: true}
+      }
+      return {...i, isContributor: false}
+    })
 
-    const nonGhostContributors = team.filter( i => {
-      if (ghostAuthorsSlugs.indexOf(i.slug) < 0) {
+    const allContributors = authors.filter( i => {
+      if (ghostContributorsSlugs.indexOf(i.slug) >= 0) {
         return i
       }
     })
-
-    
-    const contributorsnames = team.map( i => i.name );
-    // const isContributor = contributorsnames.indexOf(author.name) >= 0 ? true : false;
-       
-
+    const allGuests = authors.filter( i => {
+      if (ghostGuestSlugs.indexOf(i.slug) >= 0) {
+        return i
+      }
+    })
     return (
         <>
-            {/* <MetaData
-                data={data}
-                location={location}
-                type="profile"
-            /> */}
             <Helmet>
                 <title>The Synthetic Data Vault Blog Authors, Contributors and Guests</title>
                 <meta name="description" content="Meet and Discover The Synthetic Data Vault Blog Authors, Contributors and Guests" />
@@ -59,7 +60,7 @@ const Authors = ({ data, location, pageContext }) => {
                       Core Contributors
                     </SectionTitle>
                     <div className="flex flex-wrap md:justify-start justify-center -mx-4 lg:-mx-10">
-                      {authors.sort((a, b) => ( a.name.split(' ')[1] > b.name.split(' ')[1]) ? 1 : ((b.name.split(' ')[1] >  a.name.split(' ')[1]) ? -1 : 0)).map((author, idx) => {
+                      {allContributors.sort((a, b) => ( a.name.split(' ')[1] > b.name.split(' ')[1]) ? 1 : ((b.name.split(' ')[1] >  a.name.split(' ')[1]) ? -1 : 0)).map((author, idx) => {
                         return (
                           <a href={`${config.sitePath}/authors/${author.slug}`} 
                             className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap"
@@ -80,42 +81,18 @@ const Authors = ({ data, location, pageContext }) => {
                         );
                       })}
 
-                      
-                      
-                      {nonGhostContributors.map((author, idx) => {
-                        return (
-                          <a href={`${config.sitePath}/authors/${author.slug}`} 
-                            className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap hidden"
-                          >
-                            <div className="text-center text-sdv-dark">
-                              <div
-                                className="h-full block transition-shadow"
-                              >
-                                <div className='w-40  mx-auto relative mb-4'>
-                                  {author.image && <img className="w-full h-auto block mx-auto rounded-full relative z-10 mb-6" src={`${config.sitePath}${author.image}`} alt={author.name} />}
-                                </div>
-                                
-                                  <p className='read-more font-bold text'>{author.name}</p>
-                                  <p className='text-center'>{author.location}</p>
-                              </div>
-                            </div>
-                          </a>
-                        );
-                      })}
-
                     </div>
 
                   </section>
 
-                  <section className='pt-24 hidden' id="guest-authors">
+                  {allGuests && <section className='pt-24' id="guest-authors">
                       <SectionTitle>
                         Guest Authors
                       </SectionTitle>
-
                       <div className="flex flex-wrap md:justify-start justify-center -mx-4 lg:-mx-10">
                       
                       
-                      {guests.map((author, idx) => {
+                      {allGuests.map((author, idx) => {
                         return (
                           <a href={`${config.sitePath}/authors/${author.slug}`} 
                             className="my-6 w-64 px-4 lg:px-6 mb-4 hover:opacity-80 link-wrap"
@@ -125,7 +102,7 @@ const Authors = ({ data, location, pageContext }) => {
                                 className="h-full block transition-shadow"
                               >
                                 <div className='w-40  mx-auto relative mb-4'>
-                                  {author.image && <img className="w-full h-auto block mx-auto rounded-full relative z-10 mb-6" src={`${config.sitePath}${author.image}`} alt={author.name} />}
+                                  {author.profile_image && <img className="w-full h-auto block mx-auto rounded-full relative z-10 mb-6" src={author.profile_image} alt={author.name} />}
                                 </div>
                                 
                                   <p className='read-more font-bold text'>{author.name}</p>
@@ -140,7 +117,7 @@ const Authors = ({ data, location, pageContext }) => {
 
                       
                      
-                  </section>
+                  </section>}
 
                   <p className='mt-20 text-lg max-w-4xl'>
                     Are you using the SDV to solve your business needs? Become a guest author for our blog! Contact us at <a className='text-sdv-highlight hover:underline' href="mailto:info@sdv.dev">info@sdv.dev</a> for more information.
